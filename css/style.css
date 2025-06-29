@@ -63,6 +63,7 @@ nav a:hover {
   letter-spacing: 2px;
   margin-bottom: 1rem;
 }
+
 .section-desc {
   font-size: 1rem;
   margin-bottom: 2rem;
@@ -135,6 +136,36 @@ nav a:hover {
 body {
   padding-left: 80px;
 }
+/*================================Home============================*/
+
+/*================================== About ========================*/
+.dot-grid {
+      display: grid;
+      border-radius: 5px;
+      grid-template-columns: repeat(25, 10px); /* Fewer columns */
+      gap: 2px;
+      background-image: url(../studio_bw_effect.png);
+      background-size: cover;           /* Add this */
+      background-position: center;      /* Add this */
+      background-repeat: no-repeat; 
+      
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid #777;
+      background-color: rgb(0, 0, 0);
+      opacity: var(--i, 1);
+      transition: opacity 1s ease, background-color 1s ease;
+      will-change: opacity, background-color;
+    }
+
+    .dot.hovered {
+      opacity: 1 !important;
+      
+    }
+
 /*================================== Skills ========================*/
 .skills-container {
   display: flex;
@@ -300,7 +331,7 @@ body {
   overflow: hidden;
   border-radius: 20px 20px 60px 20px;
   padding: 20px;
-  background: #970505;
+  background: #97050500;
 }
 .nav-btns {                           /* button navigation */
   grid-area: nav-btns;
@@ -426,109 +457,60 @@ img, .about-image, .home-image {
   .sidebar {
     display: none;
   }
-
-  .section,
-  .skills-container,
+  .skills-container {
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+  }
   .project-container {
+    flex-direction: row;
+    padding: 1rem;
+  }
+  .project-img {
+    max-width: 100%;
+    height: fit-content;
+    border-radius: 15px;
+  }
+
+  .section {
     flex-direction: column;
     align-items: center;
     padding: 2rem 1rem;
   }
 
   .section-content,
-  .section-img,
-  .project-img {
+  .section-img {
     max-width: 100%;
   }
-
   .layout-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
     grid-template-areas:
-      "project-title"
+      "project-title "
       "project-description"
-      "part8"
-      "thumbnail-preview-strip"
-      "nav-btns";
+      "part3 "
+      "part8";
   }
-
-  .project-title,
+  .project-title{
+    width: 80%;
+  }
   .project-description {
     padding: 0;
     text-align: center;
   }
-
-  .thumbnail-preview-strip {
-    flex-direction: column;
+  .nav-btns,.thumbnail-preview-strip{
+    display: none;
   }
-
   .project-btn,
   .project-btn1 {
     width: 100%;
     text-align: center;
   }
-
   .icon {
     width: 50px;
     height: 50px;
     font-size: 22px;
   }
-}
-
-/* === Medium Devices (Tablets) === */
-@media (min-width: 601px) and (max-width: 1024px) {
-  .section {
-    flex-direction: column;
-    padding: 3rem 2rem;
-    text-align: center;
-  }
-
-  .section-content,
-  .section-img {
-    max-width: 100%;
-  }
-
-  .layout-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas:
-      "project-title project-title"
-      "project-description project-description"
-      "part8 thumbnail-preview-strip"
-      "nav-btns nav-btns";
-  }
-
-  .thumbnail-preview-strip {
-    flex-wrap: wrap;
-  }
-
-  .icon {
-    width: 55px;
-    height: 55px;
-    font-size: 24px;
-  }
-}
-
-/* === Large Devices (Laptops/Desktops) === */
-@media (min-width: 1025px) {
-  .section {
-    flex-direction: row;
-  }
-
-  .section-content {
-    max-width: 40vw;
-  }
-
-  .section-img {
-    max-width: 40vw;
-  }
-
-  .layout-grid {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
-/* =================== Responsive for Skills & Projects =================== */
-
-/* Mobile phones */
-@media (max-width: 600px) {
   .skills-container {
     gap: 16px;
     padding: 0 1rem;
@@ -553,28 +535,53 @@ img, .about-image, .home-image {
     padding: 1rem;
   }
 
-  .project-img,
-  .thumbnail-preview img,
-  .project-thumbnail img {
+  .project-img {
     width: 100%;
     height: auto;
     border-radius: 15px;
   }
 
-  .thumbnail-preview-strip {
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-  }
-
-  .thumbnail-preview {
-    width: 100%;
-    height: auto;
-  }
 }
 
-/* Tablets */
+/* === Medium Devices (Tablets) === */
 @media (min-width: 601px) and (max-width: 1024px) {
+  .section {
+    flex-direction: column;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .section-content,
+  .section-img {
+    max-width: 100%;
+  }
+
+  .layout-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "project-title project-title"
+      "project-description project-description"
+      "part3 nav-btns"
+      "part8 part8";
+  }
+  .project-img {
+    border-radius: 20px;
+  }
+  .project-description{
+    height: 85%;
+    overflow-y: hidden;
+  }
+
+  .thumbnail-preview-strip {
+    display: none;
+  }
+
+  .icon {
+    width: 55px;
+    height: 55px;
+    font-size: 24px;
+  }
   .skills-container {
     justify-content: center;
     gap: 20px;
@@ -587,26 +594,40 @@ img, .about-image, .home-image {
 
   .project-container {
     flex-direction: column;
-    padding: 2rem;
+    padding: 1rem;
   }
 
   .project-img,
-  .thumbnail-preview img,
   .project-thumbnail img {
     width: 100%;
     height: auto;
   }
+}
 
-  .thumbnail-preview-strip {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
+/* === Large Devices (Laptops/Desktops) === */
+@media (min-width: 1025px) {
+  .section {
+    flex-direction: row;
   }
 
-  .thumbnail-preview {
-    flex: 1 1 45%;
-    height: auto;
+  .section-content {
+    max-width: 40vw;
   }
+
+  .section-img {
+    max-width: 40vw;
+  }
+
+  .layout-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+/* =================== Responsive for Skills & Projects =================== */
+
+
+/* Tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+  
 }
 
 /* Laptops & Desktops */

@@ -33,31 +33,11 @@ function initializeProjects() {
     {
       img: "subfiles/img3.jpg",
       title: "Project Three",
-      desc: "This is a description of Project Three. Explain what makes it stand out.Nature is the natural world around us, including living things like plants, animals, birds, and insects, as well as non-living things such as mountains, rivers, oceans, sky, soil, and air. It is a gift from Earth that supports all life forms. Nature maintains a perfect balance in ecosystems, helping to purify air and water, provide food, regulate climate, and support biodiversity Humans depend on nature for their survival—whether it’s the oxygen we breathe, the water we drink, or the crops we grow. Forests act as the lungs of the Earth, while oceans help regulate temperature and weather patterns. Animals and insects help in pollination and maintaining the food chain. However, human activities like deforestation, pollution, and overuse of resources are harming nature. To live sustainably, we must protect and preserve nature through actions like planting trees, conserving water, reducing plastic use, and respecting wildlife.Nature is not just important for survival—it also gives peace, beauty, and inspiration. Protecting nature means protecting our future.",
+      desc: "This is a description of Project Three. Explain what makes it stand out.Nature is the natural world around us, including living things like plants, animals, birds, and insects, as well as non-living things such as mountains, rivers, oceans, sky, soil. ",
       links: [
         { text: "GitHub", url: "#" },
         { text: "PDF", url: "#" },
         
-      ]
-    },
-    {
-      img: "subfiles/img4.jpg",
-      title: "Project Four",
-      desc: "This is a description of Project Four. Discuss the technologies used and the problem it solves.",
-      links: [
-        { text: "GitHub", url: "#" },
-        { text: "PDF", url: "#" },
-
-      ]
-    },
-    {
-      img: "subfiles/img5.jpg",
-      title: "Project Five",
-      desc: "This is a description of Project Five. Highlight its main features and technologies.",
-      links: [
-        { text: "GitHub", url: "#" },
-        { text: "PDF", url: "#" },
-
       ]
     }
     
@@ -106,7 +86,7 @@ function initializeProjects() {
     autoMoveInterval = setInterval(() => {
       current = (current + 1) % projects.length;
       renderProject(current, false); // Do NOT scroll on auto-move
-    }, 3000);
+    }, 5000);
   }
 
   function pauseAutoMove() {
@@ -114,7 +94,7 @@ function initializeProjects() {
     clearTimeout(autoMoveTimeout);
     autoMoveTimeout = setTimeout(() => {
       startAutoMove();
-    }, 5000); // Wait 5 seconds before resuming auto-move
+    }, 8000); // Wait 5 seconds before resuming auto-move
   }
 
   function userInteracted(action) {
