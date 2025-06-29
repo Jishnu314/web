@@ -144,7 +144,7 @@ body {
       border-radius: 5px;
       grid-template-columns: repeat(25, 10px); /* Fewer columns */
       gap: 2px;
-      background-image: url(images/studio_bw_effect.png);
+      background-image: url(.../images/studio_bw_effect.png);
       background-size: cover;           /* Add this */
       background-position: center;      /* Add this */
       background-repeat: no-repeat; 
