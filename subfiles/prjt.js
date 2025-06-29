@@ -13,12 +13,8 @@ function initializeProjects() {
     {
       img: "subfiles/img1.jpg",
       title: "Portfolio",
-      desc: "This is a description of Project One. Highlight features, tech stack, and what makes it special.",
-      links: [
-        { text: "View", url: "https://youtu.be/5Am4GRVmeko?si=jPR3E-ahA_crM9Qa" },
-        { text: "PDF", url: "#" },
-        
-      ]
+      desc: "This is my personal portfolio website designed to showcase my identity as a developer and designer. It features a modern, minimal UI with a sidebar for navigation, a bold introduction section with my image, and easy access to view projects.",
+      links: []
     },
     {
       img: "subfiles/img2.jpg",
@@ -26,8 +22,8 @@ function initializeProjects() {
       desc: "This is a description of Project Two. It uses different technologies and has unique features. Discuss its impact.  this is a mode for checking the project section about how they see and how it will be by see in all scales and how it will be in the mobile view.",
       links: [
         { text: "GitHub", url: "https://github.com/Jishnukolarkunnath/resume.git" },
-        { text: "PDF", url: "#" },
-        
+        { text: "PDF", url: "#" }
+      
       ]
     },
     {
@@ -36,7 +32,7 @@ function initializeProjects() {
       desc: "This is a description of Project Three. Explain what makes it stand out.Nature is the natural world around us, including living things like plants, animals, birds, and insects, as well as non-living things such as mountains, rivers, oceans, sky, soil. ",
       links: [
         { text: "GitHub", url: "#" },
-        { text: "PDF", url: "#" },
+        { text: "PDF", url: "#" }
         
       ]
     }
@@ -94,7 +90,7 @@ function initializeProjects() {
     clearTimeout(autoMoveTimeout);
     autoMoveTimeout = setTimeout(() => {
       startAutoMove();
-    }, 8000); // Wait 5 seconds before resuming auto-move
+    }, 12000); // Wait 12 seconds before resuming auto-move
   }
 
   function userInteracted(action) {

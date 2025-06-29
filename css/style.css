@@ -136,7 +136,7 @@ nav a:hover {
 body {
   padding-left: 80px;
 }
-/*================================Home============================*/
+
 
 /*================================== About ========================*/
 .dot-grid {
@@ -251,8 +251,8 @@ body {
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 .project-img{
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 20px 50px 20px 20px;
 }
@@ -308,6 +308,7 @@ body {
 .project-title{
   grid-area: project-title;
   padding-left: 3%;
+  padding-top: 20%;
   font-size: 2rem;
   margin-top: 20%;
   margin: 0 0 15px 0;
@@ -347,7 +348,7 @@ body {
   grid-area: part8;
   padding: 1%;
   display: flex;
-  object-fit: stretch;
+  object-fit: cover;
 }
 
 .part4 {                              /* empty */
