@@ -465,7 +465,8 @@ img, .about-image, .home-image {
   }
   .project-container {
     flex-direction: row;
-    padding: 1rem;
+    padding: 8px;
+    border-radius: 20px;
   }
   .project-img {
     max-width: 100%;
@@ -595,7 +596,8 @@ img, .about-image, .home-image {
 
   .project-container {
     flex-direction: column;
-    padding: 1rem;
+    padding: 8px;
+    border-radius: 20px;
   }
 
   .project-img,
@@ -622,17 +624,6 @@ img, .about-image, .home-image {
   .layout-grid {
     grid-template-columns: repeat(6, 1fr);
   }
-}
-/* =================== Responsive for Skills & Projects =================== */
-
-
-/* Tablets */
-@media (min-width: 601px) and (max-width: 1024px) {
-  
-}
-
-/* Laptops & Desktops */
-@media (min-width: 1025px) {
   .skills-container {
     justify-content: center;
     gap: 24px;
@@ -644,9 +635,14 @@ img, .about-image, .home-image {
 
   .project-container {
     flex-direction: row;
+    
+    
   }
-
-  .project-img,
+  .project-img {
+    width: fit-content;
+    height: auto;
+    border-radius: 20px;
+  }
   .thumbnail-preview img,
   .project-thumbnail img {
     height: auto;
