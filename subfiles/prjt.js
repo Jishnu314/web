@@ -25,16 +25,6 @@ function initializeProjects() {
         { text: "PDF", url: "#" }
       
       ]
-    },
-    {
-      img: "subfiles/img3.jpg",
-      title: "Project Three",
-      desc: "This is a description of Project Three. Explain what makes it stand out.Nature is the natural world around us, including living things like plants, animals, birds, and insects, as well as non-living things such as mountains, rivers, oceans, sky, soil. ",
-      links: [
-        { text: "GitHub", url: "#" },
-        { text: "PDF", url: "#" }
-        
-      ]
     }
     
   ];
