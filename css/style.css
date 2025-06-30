@@ -325,7 +325,7 @@ body {
   margin-left: 1%;
   width: 95%;
 }
-.thumbnail-preview-strip {                         /* thumbnail preview */
+.thumbnail-preview-strip {                 /* thumbnail preview */
   grid-area: thumbnail-preview-strip;
   display: flex;
   gap: 10px;
@@ -572,7 +572,7 @@ img, .about-image, .home-image {
   }
   .project-description{
     height: 85%;
-    overflow-y: hidden;
+    
   }
 
   .thumbnail-preview-strip {
@@ -635,13 +635,14 @@ img, .about-image, .home-image {
 
   .project-container {
     flex-direction: row;
-    
-    
+  
   }
   .project-img {
     width: fit-content;
+    width: 100%;
     height: auto;
     border-radius: 20px;
+    
   }
   .thumbnail-preview img,
   .project-thumbnail img {
@@ -658,4 +659,5 @@ img, .about-image, .home-image {
     height: 100px;
     width: 100px;
   }
+
 }
