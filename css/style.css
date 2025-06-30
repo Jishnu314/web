@@ -154,8 +154,8 @@ body {
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      border: 1px solid #777;
-      background-color: rgb(0, 0, 0);
+      border: 1px solid #777777c7;
+      background-color: transparent;
       opacity: var(--i, 1);
       transition: opacity 1s ease, background-color 1s ease;
       will-change: opacity, background-color;
