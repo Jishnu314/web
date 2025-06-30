@@ -53,7 +53,7 @@ fetch('subfiles/experience.html')
                 otherEl.classList.remove('hovered');
                 if (!otherEl.classList.contains('shimmering')) {
                   otherEl.style.setProperty('--i', baseOpacity);
-                  otherEl.style.backgroundColor = 'rgb(0, 0, 0)';
+                  otherEl.style.backgroundColor = 'transparent'; // Use transparent to avoid flicker
                 }
               }, 400); // Shorter hover reset
             }
@@ -66,21 +66,21 @@ fetch('subfiles/experience.html')
       if (dot.classList.contains('hovered') || dot.classList.contains('shimmering') || dot.style.backgroundColor === 'rgb(255, 255, 255)') return;
       dot.classList.add('shimmering');
       dot.style.setProperty('--i', 1);
-      dot.style.backgroundColor = 'rgb(255, 255, 255)';
+      dot.style.backgroundColor = 'rgb(255, 255, 255)'; // Use white to create a shimmer effect
       // Do NOT reset color or opacity
     
       setTimeout(() => {
         dot.classList.remove('shimmering');
         if (!dot.classList.contains('hovered')) {
           dot.style.setProperty('--i', originalOpacity);
-          dot.style.backgroundColor = 'rgb(0, 0, 0)';
+          dot.style.backgroundColor = 'transparent'; // Use transparent to avoid flicker
         }
       }, 2000); // Shorter shimmer life
     }
 
     function startSlowShimmer() {
       setInterval(() => {
-        const count = Math.floor(Math.random() * 3) + 1; // Fewer shimmer dots
+        const count = Math.floor(Math.random() * 8) + 3; // Fewer shimmer dots
         for (let i = 0; i < count; i++) {
           const randomDot = dots[Math.floor(Math.random() * dots.length)];
           shimmerDot(randomDot.el);
