@@ -131,6 +131,7 @@ nav a:hover {
 }
 .sidebar-nav a:hover {
   color: #ff6600;
+  scale: 1.5;
 }
 /* Add padding to main content to avoid overlap */
 body {
