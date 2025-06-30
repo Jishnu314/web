@@ -80,7 +80,7 @@ fetch('subfiles/experience.html')
 
     function startSlowShimmer() {
       setInterval(() => {
-        const count = Math.floor(Math.random() * 8) + 3; // Fewer shimmer dots
+        const count = Math.floor(Math.random() * 3) + 2; // Fewer shimmer dots
         for (let i = 0; i < count; i++) {
           const randomDot = dots[Math.floor(Math.random() * dots.length)];
           shimmerDot(randomDot.el);

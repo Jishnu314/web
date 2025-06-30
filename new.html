@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dot Text Shape with Hover Fade</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+    }
+    canvas {
+      display: block;
+      margin: auto;
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+<canvas id="dotCanvas" width="800" height="600"></canvas>
+<script>
+const canvas = document.getElementById("dotCanvas");
+const ctx = canvas.getContext("2d");
+
+const centerX = canvas.width / 2;
+const centerY = canvas.height / 2;
+const shapeWidth = 500;
+const shapeHeight = 320;
+const cornerRadius = 150;
+const spacing = 6;
+
+const dots = [];
+let imageData = null;
+
+const words = ["DESIGNER", "WEBDEVELOPER", "CREATOR", "ENGINEER", "ARTIST", "PROGRAMMER", "INNOVATOR", "ENTREPRENEUR", "VISIONARY", "EXPLORER"];
+let currentWordIndex = 0;
+let frame = 0;
+
+function isInHybridShape(x, y) {
+  const dx = Math.abs(x - centerX);
+  const dy = Math.abs(y - centerY);
+  const hw = shapeWidth / 2;
+  const hh = shapeHeight / 2;
+
+  if (dx <= hw - cornerRadius && dy <= hh) return true;
+  if (dx <= hw && dy <= hh - cornerRadius) return true;
+  const cornerDx = dx - (hw - cornerRadius);
+  const cornerDy = dy - (hh - cornerRadius);
+  return cornerDx * cornerDx + cornerDy * cornerDy <= cornerRadius * cornerRadius;
+}
+
+function getTextBrightness(x, y) {
+  if (!imageData) return { brightness: 1 };
+
+  const shapeLeft = centerX - shapeWidth / 2;
+  const shapeTop = centerY - shapeHeight / 2;
+
+  const nx = (x - shapeLeft) / shapeWidth;
+  const ny = (y - shapeTop) / shapeHeight;
+
+  const imgX = Math.floor(nx * imageData.width);
+  const imgY = Math.floor(ny * imageData.height);
+  const i = (imgY * imageData.width + imgX) * 4;
+
+  const r = imageData.data[i];
+  const g = imageData.data[i + 1];
+  const b = imageData.data[i + 2];
+  const brightness = (r + g + b) / (3 * 255);
+  return { brightness };
+}
+
+function drawDot(x, y, size = 4, opacity = 1, color = 'black') {
+  ctx.beginPath();
+  ctx.arc(x, y, size, 0, Math.PI * 2);
+  ctx.fillStyle = `rgba(${color}, ${opacity})`;
+  ctx.fill();
+}
+
+function generateDots() {
+  dots.length = 0;
+  for (let x = 0; x <= canvas.width; x += spacing) {
+    for (let y = 0; y <= canvas.height; y += spacing) {
+      if (isInHybridShape(x, y)) {
+        const { brightness } = getTextBrightness(x, y);
+        const opacity = 1 - brightness;
+        dots.push({ x, y, size: 3.5, opacity, color: '0,0,0' });
+      } else {
+        const dx = x - centerX;
+        const dy = y - centerY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 450 && dist > 160 && Math.random() < 0.06) {
+          const fade = Math.max(0.05, 1 - (dist - 150) / 300);
+          dots.push({ x, y, size: 4, opacity: fade * 0.6, color: '0,0,0' });
+        }
+        if (dist > 450 && Math.random() < 0.01) {
+          dots.push({ x, y, size: 4.5, opacity: 0.1, color: '0,0,0' });
+        }
+      }
+    }
+  }
+}
+
+function drawAllDots(mouseX = null, mouseY = null) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (const dot of dots) {
+    let dx = dot.x - mouseX;
+    let dy = dot.y - mouseY;
+    let dist = Math.sqrt(dx * dx + dy * dy);
+    let maxDist = 25;
+    if (mouseX !== null && dist < maxDist) {
+      const factor = 1 - dist / maxDist;
+      const newSize = dot.size + factor * 3.5;
+      const newOpacity = Math.min(1, dot.opacity + factor * 0.7);
+      drawDot(dot.x, dot.y, newSize, newOpacity, '255,255,255');
+    } else {
+      drawDot(dot.x, dot.y, dot.size, dot.opacity, dot.color);
+    }
+  }
+}
+
+canvas.addEventListener('mousemove', (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const mx = e.clientX - rect.left;
+  const my = e.clientY - rect.top;
+  drawAllDots(mx, my);
+});
+
+function updateTextCanvas(text) {
+  const tempCanvas = document.createElement('canvas');
+  const scale = 2;
+  tempCanvas.width = shapeWidth * scale;
+  tempCanvas.height = shapeHeight * scale;
+  const tempCtx = tempCanvas.getContext('2d');
+
+  tempCtx.fillStyle = 'white';
+  tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+
+  let fontSize = 100 * scale;
+  tempCtx.textAlign = 'center';
+  tempCtx.textBaseline = 'middle';
+  tempCtx.fillStyle = 'black';
+
+  while (fontSize > 10) {
+    tempCtx.font = `bold ${fontSize}px sans-serif`;
+    const metrics = tempCtx.measureText(text);
+    const textWidth = metrics.width;
+    if (textWidth <= tempCanvas.width * 0.9) break;
+    fontSize -= 2;
+  }
+
+  tempCtx.fillText(text, tempCanvas.width / 2, tempCanvas.height / 2);
+
+  const finalCanvas = document.createElement('canvas');
+  finalCanvas.width = shapeWidth;
+  finalCanvas.height = shapeHeight;
+  const finalCtx = finalCanvas.getContext('2d');
+  finalCtx.drawImage(tempCanvas, 0, 0, shapeWidth, shapeHeight);
+  imageData = finalCtx.getImageData(0, 0, shapeWidth, shapeHeight);
+
+  generateDots();
+  drawAllDots();
+}
+
+function loop() {
+  frame++;
+  if (frame % 240 === 0) {
+    currentWordIndex = (currentWordIndex + 1) % words.length;
+    updateTextCanvas(words[currentWordIndex]);
+  }
+  requestAnimationFrame(loop);
+}
+
+// Start
+updateTextCanvas(words[0]);
+loop();
+</script>
+</body>
+</html>

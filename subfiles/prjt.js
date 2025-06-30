@@ -15,17 +15,17 @@ function initializeProjects() {
       title: "Portfolio",
       desc: "This is my personal portfolio website designed to showcase my identity as a developer and designer. It features a modern, minimal UI with a sidebar for navigation, a bold introduction section with my image, and easy access to view projects.",
       links: []
-    }//,
-    //{
-      //img: "subfiles/img2.jpg",
-      //title: "Project Two",
-    //  desc: "This is a description of Project Two. It uses different technologies and has unique features. Discuss its impact.  this is a mode for checking the project section about how they see and how it will be by see in all scales and how it will be in the mobile view.",
-      //links: [
-        //{ text: "GitHub", url: "https://github.com/Jishnukolarkunnath/resume.git" },
-        //{ text: "PDF", url: "#" }
+    },
+    {
+      img: "subfiles/img2.jpg",
+      title: "Project Demo",
+      desc: "This is a description of Project Demo. It uses different technologies and has unique features. Discuss its impact.  this is a mode for checking the project section about how they see and how it will be by see in all scales and how it will be in the mobile view.",
+      links: [
+        { text: "GitHub", url: "https://github.com/Jishnu314.git" },
+        { text: "PDF", url: "#" }
       
-      //]
-   // }
+      ]
+    }
     
   ];
 
