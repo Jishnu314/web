@@ -10,7 +10,7 @@ This is my personal portfolio website. It showcases my skills, projects, and con
 
 How to Use:
 -----------
-1. Open the link
+1. Open the link   https://jishnu314.github.io/web/
 
 License:
 --------
