@@ -4,6 +4,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth
+}
 
 body {
   font-family: 'Montserrat', Arial, sans-serif;
@@ -11,7 +14,9 @@ body {
   color: #222;
   line-height: 1.6;
   padding-left: 80px;
+  scroll-behavior: smooth
 }
+/*================================================= Header styles ================================================================*/
 
 header {
   width: 100%;
@@ -42,6 +47,7 @@ nav a:hover {
   min-height: 60vh;
   padding: 4rem 8vw;
   position: relative;
+  
 }
 .block-reverse {
   flex-direction:  row-reverse;
@@ -49,10 +55,16 @@ nav a:hover {
 .section.dark {
   background: #181818;
   color: #fff;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
 }
 .section.light {
   background: #fff;
   color: #222;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
 }
 .section-content {
   max-width: 40vw;
@@ -95,7 +107,7 @@ nav a:hover {
   height: auto;
   z-index: 1;
 }
-/* Sidebar styles */
+/*================================================= Sidebar styles =================================================================*/
 .sidebar {
   position: fixed;
   top: 0;
@@ -133,39 +145,11 @@ nav a:hover {
   color: #ff6600;
   scale: 1.5;
 }
-/* Add padding to main content to avoid overlap */
-body {
-  padding-left: 80px;
-}
 
 
-/*================================== About ========================*/
-.dot-grid {
-      display: grid;
-      border-radius: 5px;
-      grid-template-columns: repeat(25, 10px); /* Fewer columns */
-      gap: 2px;
-      background-image: url('../studio_bw_effect.png');
-      background-size: cover;           /* Add this */
-      background-position: center;      /* Add this */
-      background-repeat: no-repeat; 
-      
-    }
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      border: 1px solid #777777c7;
-      background-color: transparent;
-      opacity: var(--i, 1);
-      transition: opacity 1s ease, background-color 1s ease;
-      will-change: opacity, background-color;
-    }
 
-    .dot.hovered {
-      opacity: 1 !important;
-      
-    }
+/*==================================Home ========================*/
+
 
 /*================================== Skills ========================*/
 .skills-container {
@@ -186,18 +170,31 @@ body {
   padding: 1rem 1.5rem;
   transition: transform 0.2s;
   max-width: 90px;
+  
 }
-
 .skill i {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
   color: #000000;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.skill:hover {
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  background: #e9e8e8c7;
 }
 
-.skill span {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #222;
+.skill:hover .skill-name,
+.skill:focus .skill-name,
+.skill:focus-within .skill-name {
+  opacity: 1;
+  transform: translateY(0);
+}
+.skill-name {
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 /*==================================PROJECT==========================*/
 
@@ -214,8 +211,7 @@ body {
   height: auto;
   align-items: center;
   border-radius: 52px;
-  background: rgb(255, 255, 255);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: transparent;
   padding: 0%;
   display: flex;
   flex-direction: row;
@@ -242,20 +238,19 @@ body {
 .project-btn1 {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  border: 1px solid #000000;
+  border: 1px solid #f8f0f0;
   border-radius: 32px;
   background: transparent;
-  color: #000000;
+  color: #ffffff;
   font-weight: 500;
   letter-spacing: 1px;
   text-decoration: none;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 .project-img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px 50px 20px 20px;
+  width: auto;
+  height: auto;
+  display: auto;
 }
 .thumbnail-preview {
   width: 100%;
@@ -279,8 +274,8 @@ body {
 }
 .project-thumbnail img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: auto;
   border-radius: 20px;
   animation: forwards fadeIn 0.5s;
 }
@@ -321,7 +316,7 @@ body {
   grid-area: project-description;
   padding-left: 3%;
   font-size: 1.1rem;
-  color: #333;
+  color: #f1f1f1;
   text-align:  left;
   margin-left: 1%;
   width: 95%;
@@ -338,6 +333,7 @@ body {
 .nav-btns {                           /* button navigation */
   grid-area: nav-btns;
   padding: 22%;
+  object-fit: contain;
   display: flex;
 }
 .part3 {                              /* link */
@@ -374,7 +370,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: auto +100px;
+  min-height: calc(100px + auto);
   text-align: center;
 }
 
@@ -474,7 +470,6 @@ img, .about-image, .home-image {
     height: fit-content;
     border-radius: 15px;
   }
-
   .section {
     flex-direction: column;
     align-items: center;
