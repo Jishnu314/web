@@ -6,9 +6,8 @@
   <title>Jishnu's Portfolio</title>
   <link rel="stylesheet" href="css/style.css">  
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">      <!-- Google Fonts -->
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">             <!-- Remix Icons(socai media) -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">             <!-- Remix Icons(social media) -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">    <!-- Font Awesome(for skill) -->
-  <link rel="stylesheet" href="path/to/fork-awesome/css/fork-awesome.min.css">                                 <!-- Fork Awesome(for social media) -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">           <!-- AOS CSS -->
 
 </head>
@@ -28,14 +27,14 @@
   </aside>
 
   <!-- Home Section -->
-  <section class="section light" id="home" data-aos="fade-up" style="padding-top: 8rem; padding-bottom: 8rem;">
+  <section class="section light" id="home" data-aos="fade-up" style="padding-top: 8rem; padding-bottom: 8rem; height: 80vh;" >
     <div class="section-content">
-      <h1 class="section-title ">I'm JISHNU</h1>
+      <h1 class="section-title rellax" data-rellax-speed="3">I'm JISHNU</h1>
       <p class="section-desc">I'm, a passionate developer and designer.</p>
       <a href="#projects" class="section-btn" data-aos="flip-up" data-aos-duration="600" data-aos-delay="250">Explore Projects</a>
     </div>
-    <div class="section-img" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="150">
-      <img src="images/jk07.png" alt="Home Image" class="home-image" style="width: fit-content;">
+    <div class="section-img" data-aos="fade" data-aos-duration="500" data-aos-delay="150">
+      <div class="rellax background-image" data-rellax-speed="-3"></div>
     </div>
   </section>
 
@@ -48,7 +47,8 @@
       <a href="#projects" class="section-btn"data-aos="zoom-in-right" data-aos-duration="500" data-aos-offset="200" >Explore My Work</a>
     </div>
     <div class="section-img" data-aos="fade-up"  data-aos-offset="350" data-aos-duration="500">
-      <div class="dot-grid"></div>
+            <img src="images/jk07.png" alt="Home Image" class="home-image" style="width: fit-content;">
+
     </div>
   </section>
 
@@ -59,7 +59,7 @@
       <div id="skills-section-placeholder"></div>
       <!-- Only one placeholder -->
       <br>
-      <a href="#projects" class="section-btn" data-aos="flip-up" data-aos-duration="600" data-aos-delay="250"> Ready to Explore</a>
+      <a href="#projects" class="section-btn" data-aos="flip-up" data-aos-duration="600" data-aos-delay="250"> Ready to Explore?</a>
     </div>
 
     <div class="section light" data-aos="zoom-in-left" data-aos-offset="300">                                 
@@ -93,16 +93,16 @@
       <!-- Social Media Icons -->
       <div style="height: 10px;"></div>
       <div class="icons">
-        <a href="https://www.instagram.com/j_shnu?igsh=MW54bXg5NGRtZW10ZA==" target="_blank" class="icon icon--instagram"  data-aos-offset="110" data-aos-delay="450" data-aos="fade-up" data-aos-duration="1000">
+        <a href="https://www.instagram.com/j_shnu?igsh=MW54bXg5NGRtZW10ZA==" target="_blank" class="icon icon--instagram"  data-aos-offset="177" data-aos-delay="450" data-aos="fade-up" data-aos-duration="1000">
           <i class="ri-instagram-line"></i>
         </a>
-        <a href="https://www.linkedin.com/in/jishnu-k-6b7024255" target="_blank" class="icon icon--linkedin"  data-aos-offset="110" data-aos-delay="550" data-aos="fade-up" data-aos-duration="1000">
+        <a href="https://www.linkedin.com/in/jishnu-k-6b7024255" target="_blank" class="icon icon--linkedin"  data-aos-offset="177" data-aos-delay="550" data-aos="fade-up" data-aos-duration="1000">
           <i class="ri-linkedin-line"></i>
         </a>
-        <a href="https://github.com/Jishnu314" target="_blank" class="icon icon--github" data-aos-offset="110" data-aos-delay="650" data-aos="fade-up" data-aos-duration="1000">
+        <a href="https://github.com/Jishnu314" target="_blank" class="icon icon--github" data-aos-offset="177" data-aos-delay="650" data-aos="fade-up" data-aos-duration="1000">
           <i class="ri-github-line"></i>
         </a>
-        <a href="https://www.reddit.com/u/Flashy_Constant_6448/s/zKh5tZSENe" target="_blank" class="icon icon--reddit" data-aos-offset="110" data-aos-delay="750" data-aos="fade-up" data-aos-duration="1000">
+        <a href="https://www.reddit.com/u/Flashy_Constant_6448/s/zKh5tZSENe" target="_blank" class="icon icon--reddit" data-aos-offset="177" data-aos-delay="750" data-aos="fade-up" data-aos-duration="1000">
           <i class="ri-reddit-line"></i>
         </a>
       </div>
@@ -114,10 +114,13 @@
   </footer>
 
   <script src="script.js"></script><!-- java -->
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> <!-- Iconify JS -->
+  <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script> <!-- Rellax JS -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>  <!-- AOS JS -->
   <script>
     AOS.init();
-  </script>  
+  </script>
+    
   
 
   
