@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 /* Reset and base styles */
 * {
   margin: 0;
@@ -55,29 +56,27 @@ nav a:hover {
 .section.dark {
   background: #181818;
   color: #fff;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
+
 }
 .section.light {
   background: #fff;
   color: #222;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
+  
 }
 .section-content {
   max-width: 40vw;
 }
 .section-title {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   letter-spacing: 2px;
   margin-bottom: 1rem;
 }
 
 .section-desc {
-  font-size: 1rem;
+  font-size: 1.05rem;
   margin-bottom: 2rem;
 }
 .section-btn {
@@ -145,12 +144,21 @@ nav a:hover {
   color: #ff6600;
   scale: 1.5;
 }
-
-
-
-/*==================================Home ========================*/
-
-
+/*======================================= home section============================ */
+#home {
+  height: 100vh;
+  min-height: 100vh;
+  background-image: url("images/home-bckgnd.jpg");  
+  background-size: cover;
+  background-position: center;
+}
+.section-titleH {
+  font-family: "Audiowide", sans-serif;
+  font-weight: 500;
+  font-size: 3.8rem;
+  font-style: normal;
+  color: rgb(0, 0, 0);
+}
 /*================================== Skills ========================*/
 .skills-container {
   display: flex;
@@ -200,6 +208,8 @@ nav a:hover {
 
 #projects.section {
   display: block;
+  min-height: 100vh;
+  height: 100vh;
 }
 #projects .section-content {
   max-width: 100%;
@@ -657,3 +667,4 @@ img, .about-image, .home-image {
   }
 
 }
+
