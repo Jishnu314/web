@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jishnu's Portfolio</title>
   <link rel="stylesheet" href="css/style.css">  
+  <link rel="stylesheet" href="css/skill.css">
+  <link rel="stylesheet" href="css/experience.css"> <!-- Experience CSS -->
+  <link rel="stylesheet" href="css/project.css"> <!-- Project CSS -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">      <!-- Google Fonts -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">             <!-- Remix Icons(social media) -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">    <!-- Font Awesome(for skill) -->
@@ -27,24 +30,25 @@
   </aside>
 
   <!-- Home Section -->
-  <section class="section light" id="home" data-aos="fade-up" style="padding-top: 8rem; padding-bottom: 8rem; height: 80vh;" >
+    <section id="home" class="section light" data-aos="fade-zoom-in" data-aos-duration="1000">
     <div class="section-content">
-      <h1 class="section-titleH" data-aos="fade-up" data-aos-duration="1000"  >I'm JISHNU</h1>
-      <p class="section-desc" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" >I’m a student at Government Engineering College, Kozhikode (GECK), pursuing a degree in Applied Electronics and Instrumentation. I have a strong interest in technology, creativity, and exploring innovative ideas through hands-on projects.</p>
-      <a href="#projects" class="section-btn" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">Explore Projects</a>
+      <h1 class="section-titleH" data-aos="fade-up" data-rellax-speed="-2">I'm JISHNU</h1>
+      <p class="section-desc" data-aos="fade-up" data-aos-delay="200" data-rellax-speed="-1">I’m a student at Government Engineering College, Kozhikode (GECK), pursuing a degree in Applied Electronics and Instrumentation. I have a strong interest in technology, creativity, and exploring innovative ideas through hands-on projects.</p>
+      <a href="#projects" class="section-btn" data-aos="zoom-in" data-aos-delay="400" >Explore Projects</a>
     </div>
+    <div class="shape" data-rellax-speed="3" style="position: absolute; top: 20%; left: 10%;"></div>
   </section>
 
 <!-- About Section -->
-<section class="block-reverse section dark" id="about" data-aos="fade-up" data-aos-offset="200" data-aos-duration="1000">
+<section id="about" class="section dark" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="200">
   <div class="section-content">
-    <h2 class="section-title" data-aos="fade-up" data-aos-offset="200" data-aos-duration="500">About Me</h2>
+    <h2 class="section-title" data-aos="zoom-in-up" data-rellax-speed="-1">About Me</h2>
     <div class="section-desc">
-  <p data-aos-offset="200" data-aos="fade-up" data-aos-duration="800">
+  <p data-aos="fade-right" data-aos-delay="200">
     I’m a student at <strong>Government Engineering College, Kozhikode</strong> (<strong>GECK</strong>), pursuing Applied Electronics and Instrumentation.
     <br>I have a deep interest in technology, creativity, and building innovative solutions through hands-on learning.
   </p>
-  <p data-aos-offset="200" data-aos="fade-up" data-aos-duration="800">
+  <p data-aos="fade-left" data-aos-delay="400">
   I’ve developed a <strong>smart door lock system</strong> as part of a mini project, and I’m currently working on a <strong>drone-based vehicle detection system</strong> focused on solving real-world problems.
   I enjoy exploring both hardware and software, and I’m always curious to learn, experiment, and create meaningful tech experiences.
   </p>
@@ -53,16 +57,16 @@
     <a href="#contact" class="section-btn" data-aos="zoom-in-left" data-aos-duration="500" data-aos-offset="200">Contact Me</a>
     <a href="#projects" class="section-btn" data-aos="zoom-in-right" data-aos-duration="500" data-aos-offset="200">Explore My Work</a>
   </div>
-  <div class="section-img" data-aos="fade-up" data-aos-offset="350" data-aos-duration="500">
+  <div class="section-img" data-aos="zoom-in" data-aos-delay="300" data-rellax-speed="2">
     <img src="images/jk07.png" alt="Home Image" class="home-image" style="width: fit-content;">
   </div>
 </section>
 
   <!-- Skills Section -->
-  <section class="section light" id="skills" data-aos="zoom-in-right" data-aos-offset="300">
+  <section id="skills" class="section light" data-aos="fade-up" data-aos-offset="250">
     <div class="section-content">
-      <h2 class="section-title">Skills</h2>
-      <div id="skills-section-placeholder"></div>
+      <h2 class="section-title" data-aos="fade-down" >Skills</h2>
+      <div id="skills-section-placeholder" data-aos="fade-up" data-aos-delay="200"></div>
       <!-- Only one placeholder -->
       <br>
       <a href="#projects" class="section-btn" data-aos="flip-up" data-aos-duration="600" data-aos-delay="250"> Ready to Explore?</a>
@@ -70,17 +74,17 @@
 
     <div class="section light" data-aos="zoom-in-left" data-aos-offset="300">                                 
       <div class="section-content">
-        <h2 class="section-title">Experiences</h2>
-        <div id="experience-section-placeholder"></div> 
+        <h2 class="section-title" data-aos="fade-down" >Experiences</h2>
+        <div id="experience-section-placeholder" data-aos="fade-up" data-aos-delay="200"></div> 
       </div>
     </div>
 
   </section>
 
   <!-- Projects Section -->
-  <section class="section dark" id="projects" data-aos="fade-up" data-aos-offset="320">
+  <section id="projects" class="section dark" data-aos="fade-up" data-aos-offset="320">
     <div class="section-content">
-      <div id="project-section-placeholder"></div>
+      <div id="project-section-placeholder" data-aos="fade-up" data-aos-delay="200"></div>
       <script src="subfiles/prjt.js"></script>
     </div>
   </section>
@@ -88,7 +92,8 @@
 
 
   <!-- Contact Section -->
-  <section class="p_section light contact-center" id="contact" data-aos="fade-up" data-aos-duration="800" style="padding: 8rem 6vw;">
+  <section class="section light contact-center" id="contact" data-aos="fade-up" data-aos-duration="800">
+    
     <div class="section-content">
       <h2 class="section-title">Contact</h2>
       <p class="section-desc">Curious about something or want to team up? Say hi!</p>
@@ -124,7 +129,24 @@
   <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script> <!-- Rellax JS -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>  <!-- AOS JS -->
   <script>
-    AOS.init();
+    // Initialize AOS
+    AOS.init({
+      duration: 1000, // Animation duration
+      offset: 200, // Offset (in px) from the original trigger points
+
+    });
+
+    // Initialize Rellax for parallax effect
+    var rellax = new Rellax('.rellax', {
+      speed: -2, // Speed of the parallax effect
+      easing: 'ease-in-out', // Easing function for the parallax effect
+      center: true, // Center the elements
+      mirror: false, // Disable mirroring
+      round: true, // Round the positions to integers 
+      vertical: true, // Enable vertical parallax
+      horizontal: false // Disable horizontal parallax
+
+    });
   </script>
     
   
