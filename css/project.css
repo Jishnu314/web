@@ -2,6 +2,7 @@
 #projects.section {
   min-height: 100vh;
   height: auto;
+  display: block;
 }
 /* === Buttons === */
 .project-links {
@@ -13,6 +14,7 @@
 }
 .project-btn,
 .project-btn1 {
+  
   display: inline-block;
   padding: 0.75rem 1.5rem;
   cursor: pointer;
@@ -49,7 +51,6 @@
   width: 100%;
   height: 100%;
   display: flex;
-  background: #3700ff2d;
   border-radius: 15px;
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
@@ -91,10 +92,9 @@
 }
 .thumbnail-preview-strip {              /* thumbnail preview */
   display: flex;
-  gap: 10px;
+  gap: 20px;
   overflow: hidden;
   padding: 20px;
-  background: #ff0000;
 }
 .nav-btns {                           /* button navigation */
   grid-area: nav-btns;
@@ -102,85 +102,106 @@
   object-fit: contain;
   display: flex;
 }
-.part3 {                              /* link */
-  grid-area: part3;
-  padding-left: 10px;
+.project-container {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
-.part8 {                          /* image */ 
-  grid-area: part8;
-  padding: 1%;
-  display: flex;
-  object-fit: cover;
-}
-
-.part4 {                              /* empty */
-  background-color: #ff4500;
-  grid-area: part4;
-  padding: 10px;
-}
-.part5 {                            /* empty */
-  background-color: #0de8f0;
-  grid-area: part5;
-  padding: 0px;
-}
-.part7 {                          /* empty */
-  background-color: #000000;
-  grid-area: part7;
-  padding: 10px;
-}
-
-/* === Media Queries === */
-/* Small Devices */
+/* ==== Responsive for Phones ==== */
 @media (max-width: 600px) {
-  .project-container { flex-direction: row; padding: 8px; border-radius: 20px; }
-  .project-img { max-width: 100%; height: fit-content; border-radius: 15px; }
-  .layout-grid {
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: auto;
-    grid-template-areas:
-      "project-title "
-      "project-description"
-      "part3 "
-      "part8";
+  .project-container {
+    flex-direction: column;
+    padding: 1rem;
+    height: auto;
   }
-  .project-title { width: 80%; }
-  .project-description { padding: 0; text-align: center; }
-  .nav-btns, .thumbnail-preview-strip { display: none; }
-  .project-btn, .project-btn1 { width: 100%; text-align: center; }
-  .project-container { flex-direction: column; padding: 1rem; }
-  .project-img { width: 100%; height: auto; border-radius: 15px; }
-}
-/* Medium Devices */
-@media (min-width: 601px) and (max-width: 1024px) {
-  .layout-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    grid-template-areas:
-      "project-title project-title"
-      "project-description project-description"
-      "part3 nav-btns"
-      "part8 part8";
+
+  .project-title {
+    font-size: 1.5rem;
+    text-align: center;
   }
-  .project-img { border-radius: 20px; }
-  .project-description { height: 85%; }
-  .thumbnail-preview-strip { display: none; }
-  .project-container { flex-direction: column; padding: 8px; border-radius: 20px; }
-  .project-img,
-  .project-thumbnail img { width: 100%; height: auto; }
-}
 
+  .project-description {
+    font-size: 1rem;
+    text-align: center;
+  }
 
-/* Large Devices */
-@media (min-width: 1025px) {
-  .project-container { flex-direction: row; }
-  .project-img { width: fit-content; width: 100%; height: auto; border-radius: 20px; }
-  .thumbnail-preview img,
-  .project-thumbnail img { height: auto; max-width: 100%; }
-  .thumbnail-preview-strip { flex-direction: row; gap: 10px; }
-  .thumbnail-preview { height: 100px; width: 100px; }
-  .layout-grid {
-    grid-template-columns: repeat(6, 1fr);
+  .project-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .project-btn, .project-btn1 {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .thumbnail-preview-strip {
+    display: none;
   }
 }
 
+/* ==== Responsive for Tablets ==== */
+@media (min-width: 601px) and (max-width: 900px) {
+  .project-container {
+    flex-direction: column;
+    padding: 2rem;
+    height: auto;
+  }
+
+  .project-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .project-description {
+    font-size: 1.05rem;
+    text-align: center;
+  }
+
+  .project-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .project-btn, .project-btn1 {
+    padding: 0.5rem 1rem;
+  }
+
+  .thumbnail-preview img {
+    max-height: 250px;
+  }
+}
+
+/* ==== Responsive for Laptops ==== */
+@media (min-width: 901px) and (max-width: 1280px) {
+  .project-container {
+    padding: 2rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .project-links {
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  .thumbnail-preview img {
+    max-height: 300px;
+  }
+}
+
+/* ==== Responsive for Desktops ==== */
+@media (min-width: 1281px) {
+  .project-container {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .project-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
