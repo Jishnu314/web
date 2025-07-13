@@ -49,8 +49,7 @@
 }
 .thumbnail-preview-strip {              /* thumbnail preview */
   display: flex;
-  height: 200px;
-  max-width: 300px;
+  max-width: 50%;
   margin-left: 400px;
   gap: 20px;
   overflow: hidden;
