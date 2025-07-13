@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jishnu's Portfolio</title>
   <link rel="stylesheet" href="css/style.css">  
-  <link rel="stylesheet" href="css/skill.css">
-  <link rel="stylesheet" href="css/experience.css"> <!-- Experience CSS -->
+  <link rel="stylesheet" href="css/skill&experience.css">
   <link rel="stylesheet" href="css/project.css"> <!-- Project CSS -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">      <!-- Google Fonts -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">             <!-- Remix Icons(social media) -->
@@ -16,7 +15,8 @@
 </head>
 <body>
 
-  
+  <!-- Sidebar Toggle Button (Phones Only) -->
+  <button class="sidebar-toggle" id="sidebarToggle">☰</button>
   <!-- Sidebar -->
   <aside class="sidebar" data-aos="fade-right" data-aos-duration="1000" data-aos-offset="0">
     <div class="logo" style="background-color: transparent;">JK </div>
@@ -36,50 +36,53 @@
       <p class="section-desc" data-aos="fade-up" data-aos-delay="200" data-rellax-speed="-1">I’m a student at Government Engineering College, Kozhikode (GECK), pursuing a degree in Applied Electronics and Instrumentation. I have a strong interest in technology, creativity, and exploring innovative ideas through hands-on projects.</p>
       <a href="#projects" class="section-btn" data-aos="zoom-in" data-aos-delay="400" >Explore Projects</a>
     </div>
-    <div class="shape" data-rellax-speed="3" style="position: absolute; top: 20%; left: 10%;"></div>
+    <div class="section-img" data-aos=" fade-zoom-in" data-aos-delay="300" data-rellax-speed="2">   
   </section>
 
 <!-- About Section -->
-<section id="about" class="section dark" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="200">
-  <div class="section-content">
-    <h2 class="section-title" data-aos="zoom-in-up" data-rellax-speed="-1">About Me</h2>
-    <div class="section-desc">
-  <p data-aos="fade-right" data-aos-delay="200">
-    I’m a student at <strong>Government Engineering College, Kozhikode</strong> (<strong>GECK</strong>), pursuing Applied Electronics and Instrumentation.
-    <br>I have a deep interest in technology, creativity, and building innovative solutions through hands-on learning.
-  </p>
-  <p data-aos="fade-left" data-aos-delay="400">
-  I’ve developed a <strong>smart door lock system</strong> as part of a mini project, and I’m currently working on a <strong>drone-based vehicle detection system</strong> focused on solving real-world problems.
-  I enjoy exploring both hardware and software, and I’m always curious to learn, experiment, and create meaningful tech experiences.
-  </p>
-</div>
+  <section id="about" class="section dark" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="200">
+    <div class="section-content">
+      <h2 class="section-title" data-aos="zoom-in-up" data-rellax-speed="-1">About Me</h2>
+      <div class="section-desc">
+        <p data-aos="fade-right" data-aos-delay="200">
+          I’m a student at <strong>Government Engineering College, Kozhikode</strong> (<strong>GECK</strong>), pursuing Applied Electronics and Instrumentation.
+          <br>I have a deep interest in technology, creativity, and building innovative solutions through hands-on learning.
+        </p>
+        <p data-aos="fade-left" data-aos-delay="400">
+          I’ve developed a <strong>smart door lock system</strong> as part of a mini project, and I’m currently working on a <strong>drone-based vehicle detection system</strong> focused on solving real-world problems.
+          I enjoy exploring both hardware and software, and I’m always curious to learn, experiment, and create meaningful tech experiences.
+        </p>
+      </div>
 
-    <a href="#contact" class="section-btn" data-aos="zoom-in-left" data-aos-duration="500" data-aos-offset="200">Contact Me</a>
-    <a href="#projects" class="section-btn" data-aos="zoom-in-right" data-aos-duration="500" data-aos-offset="200">Explore My Work</a>
-  </div>
-  <div class="section-img" data-aos="zoom-in" data-aos-delay="300" data-rellax-speed="2">
-    <img src="images/jk07.png" alt="Home Image" class="home-image" style="width: fit-content;">
+      <a href="#contact" class="section-btn" data-aos="zoom-in-left" data-aos-duration="500" data-aos-offset="200">Contact Me</a>
+      <a href="#projects" class="section-btn" data-aos="zoom-in-right" data-aos-duration="500" data-aos-offset="200">Explore My Work</a>
+    </div>
+    <div class="section-img" data-aos="zoom-in" data-aos-delay="300" data-rellax-speed="2">
+      <img src="images/jk07.png" alt="Home Image" class="home-image" style="width: fit-content;">
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+<section id="skills" class="section light" data-aos="fade-up" data-aos-offset="250">
+  <div class="skills-experiences-wrapper">
+    
+    <div class="section-content" data-aos="zoom-out-right" data-aos-offset="300">
+      <h2 class="section-title" data-aos="fade-down">Skills</h2>
+      <div id="skills-section-placeholder" data-aos="fade-up" data-aos-delay="200"></div>
+      <br>
+      <a href="#projects" class="section-btn" data-aos="flip-up" data-aos-duration="600" data-aos-delay="250">
+        Ready to Explore?
+      </a>
+    </div>
+
+    <div class="section-content" data-aos="zoom-out-left" data-aos-offset="300">
+      <h2 class="section-title" data-aos="fade-down">Experiences</h2>
+      <div id="experience-section-placeholder" data-aos="fade-up" data-aos-delay="200"></div> 
+    </div>
+
   </div>
 </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="section light" data-aos="fade-up" data-aos-offset="250">
-    <div class="section-content">
-      <h2 class="section-title" data-aos="fade-down" >Skills</h2>
-      <div id="skills-section-placeholder" data-aos="fade-up" data-aos-delay="200"></div>
-      <!-- Only one placeholder -->
-      <br>
-      <a href="#projects" class="section-btn" data-aos="flip-up" data-aos-duration="600" data-aos-delay="250"> Ready to Explore?</a>
-    </div>
-
-    <div class="section light" data-aos="zoom-in-left" data-aos-offset="300">                                 
-      <div class="section-content">
-        <h2 class="section-title" data-aos="fade-down" >Experiences</h2>
-        <div id="experience-section-placeholder" data-aos="fade-up" data-aos-delay="200"></div> 
-      </div>
-    </div>
-
-  </section>
 
   <!-- Projects Section -->
   <section id="projects" class="section dark" data-aos="fade-up" data-aos-offset="320">
@@ -87,38 +90,36 @@
       <div id="project-section-placeholder" data-aos="fade-up" data-aos-delay="200"></div>
       <script src="subfiles/prjt.js"></script>
     </div>
+    
   </section>
-
-
 
   <!-- Contact Section -->
   <section class="section light contact-center" id="contact" data-aos="fade-up" data-aos-duration="800">
-    
     <div class="section-content">
-      <h2 class="section-title">Contact</h2>
-      <p class="section-desc">Curious about something or want to team up? Say hi!</p>
-      <a href="mailto:jishnuoffical5@gmail.com" class="section-btn" data-aos="flip-left" data-aos-duration="1000" data-aos-offset="320">Email Me</a>
-      <div style="height: 10px;"></div>
-      <!-- Add a Resume-->
-      <a href="resume.pdf" class="section-btn" download data-aos="flip-right" data-aos-duration="1000" data-aos-offset="300">Peek at My Resume</a>
+      <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Contact</h2>
+      <p class="section-desc" data-aos="fade-up" data-aos-delay="200">Curious about something or want to team up? Say hi!</p>
+      <a href="mailto:jishnuoffical5@gmail.com" class="section-btn" data-aos="zoom-in" data-aos-delay="300">Email Me</a>
+      <div class="spacer-sm"></div>
+      <a href="resume.pdf" class="section-btn" download data-aos="zoom-in" data-aos-delay="400">Peek at My Resume</a>
+      <div class="spacer-sm"></div>
       <!-- Social Media Icons -->
-      <div style="height: 10px;"></div>
-      <div class="icons">
-        <a href="https://www.instagram.com/j_shnu?igsh=MW54bXg5NGRtZW10ZA==" target="_blank" class="icon icon--instagram"  data-aos-offset="177" data-aos-delay="450" data-aos="fade-up" data-aos-duration="1000">
+      <div class="icons" data-aos-offset="50" data-aos="fade-up">
+        <a href="https://www.instagram.com/j_shnu?igsh=MW54bXg5NGRtZW10ZA==" target="_blank" rel="noopener noreferrer" class="icon icon--instagram" aria-label="Instagram"data-aos="fade-up" data-aos-delay="150" >
           <i class="ri-instagram-line"></i>
         </a>
-        <a href="https://www.linkedin.com/in/jishnu-k-6b7024255" target="_blank" class="icon icon--linkedin"  data-aos-offset="177" data-aos-delay="550" data-aos="fade-up" data-aos-duration="1000">
+        <a href="https://www.linkedin.com/in/jishnu-k-6b7024255" target="_blank" rel="noopener noreferrer" class="icon icon--linkedin" aria-label="LinkedIn" data-aos-delay="250" data-aos="fade-up">
           <i class="ri-linkedin-line"></i>
         </a>
-        <a href="https://github.com/Jishnu314" target="_blank" class="icon icon--github" data-aos-offset="177" data-aos-delay="650" data-aos="fade-up" data-aos-duration="1000">
+        <a href="https://github.com/Jishnu314" target="_blank" rel="noopener noreferrer" class="icon icon--github" aria-label="GitHub" data-aos-delay="350" data-aos="fade-up" >
           <i class="ri-github-line"></i>
         </a>
-        <a href="https://www.reddit.com/u/Flashy_Constant_6448/s/zKh5tZSENe" target="_blank" class="icon icon--reddit" data-aos-offset="177" data-aos-delay="750" data-aos="fade-up" data-aos-duration="1000">
+        <a href="https://www.reddit.com/u/Flashy_Constant_6448/s/zKh5tZSENe" target="_blank" rel="noopener noreferrer" class="icon icon--reddit" aria-label="Reddit" data-aos-delay="450" data-aos="fade-up">
           <i class="ri-reddit-line"></i>
         </a>
       </div>
     </div>
   </section>
+
 
   <footer class="footer" style="text-align:center; padding: 1rem 0; background: #ffffff; color: #000000;">
     &copy; 2025 Jishnu. All rights reserved.

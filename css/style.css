@@ -48,7 +48,6 @@ nav a:hover {
   padding: 4rem 8vw;
   position: relative;
   overflow: hidden;
-  
 }
 .block-reverse {
   flex-direction:  row-reverse;
@@ -67,6 +66,7 @@ nav a:hover {
 }
 .section-content {
   max-width: 40vw;
+  justify-content: space-between;
 }
 .section-title {
   font-size: 2.5rem;
@@ -87,6 +87,7 @@ nav a:hover {
 .section-btn {
   display: inline-block;
   padding: 0.75rem 2rem;
+  margin: 10px 0; 
   border: 2px solid #222;
   background: transparent;
   color: inherit;
@@ -124,6 +125,21 @@ nav a:hover {
 }
 
 /*================================================= Sidebar styles =================================================================*/
+/* Hide toggle button by default */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1001;
+  padding: 8px 12px;
+  font-size: 22px;
+  background: #1111112a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 .sidebar {
   position: fixed;
   top: 0;
@@ -165,7 +181,7 @@ nav a:hover {
 #home {
   height: 100vh;
   min-height: 100vh;
-  background-image: url("images/home-bckgnd.jpg");  
+  background-image: url("/images/home-bckgnd.jpg");  
   background-size: cover;
   background-position: center;
 }
@@ -183,7 +199,8 @@ nav a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: calc(100px + auto);
+  min-height: 80vh;
+  height: auto;
   text-align: center;
 }
 
@@ -211,7 +228,6 @@ nav a:hover {
   border-radius: 50%;
   font-size: 26px;
   color: #000000;
-  
   background-color: transparent;
   border: 2px solid #000000;
   transition: 0.25s;
@@ -262,32 +278,51 @@ img, .about-image, .home-image {
 @media (max-width: 600px) {
   body {
     padding-left: 0;
-    padding: 1rem;
-  }
-  .sidebar {
-    display: none;
+    padding: 0rem;
   }
   .section {
     flex-direction: column;
     align-items: center;
-    padding: 2rem 1rem;
+    padding: 3rem 2rem;
   }
   .section-content,
   .section-img {
     max-width: 100%;
+  }
+  .section-desc {
+    text-align: center;
   }
   .icon {
     width: 50px;
     height: 50px;
     font-size: 22px;
   }
+  .sidebar-toggle {
+    display: block;
+  }
+  .logo{
+    display: none;
+  }
+  .sidebar {
+    display: none; /* hide sidebar initially */
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 20%;
+    height: 100vh;
+    width: 20%;
+    background: #1111119c;
+    z-index: 1000;
+  }
+  .sidebar.active {
+    display: block; /* show when active */
+  }
 }
-
 /* === Medium Devices (Tablets) === */
 @media (min-width: 601px) and (max-width: 1024px) {
   .section {
     flex-direction: column;
-    padding: 3rem 2rem;
+    padding: 3rem 3rem;
     text-align: center;
   }
   .section-content,
@@ -312,8 +347,6 @@ img, .about-image, .home-image {
   .section-img {
     max-width: 40vw;
   }
-  .layout-grid {
-    grid-template-columns: repeat(6, 1fr);
-  }
+  
 }
 

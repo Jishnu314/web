@@ -14,79 +14,33 @@ fetch('subfiles/experience.html')
     document.getElementById('experience-section-placeholder').innerHTML = html;
   });
 
+// sidebar for phone 
+  const toggleBtn = document.getElementById('sidebarToggle');
+  const sidebar = document.querySelector('.sidebar');
 
-    const grid = document.querySelector('.dot-grid');
-    const cols = 25;
-    const totalDots = 800; // Lower total for performance
-    const dots = [];
+  let hideTimeout;
 
-    function getRC(index) {
-      return [Math.floor(index / cols), index % cols];
+  // Show/hide sidebar on toggle
+  toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+    resetHideTimer();
+  });
+
+  // Hide if clicked outside sidebar
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && e.target !== toggleBtn) {
+      sidebar.classList.remove('active');
+    } else {
+      resetHideTimer();
     }
+  });
 
-    function createDots() {
-      for (let i = 0; i < totalDots; i++) {
-        const dot = document.createElement('div');
-        dot.className = 'dot';
-        const opacity = Math.random().toFixed(2);
-        dot.style.setProperty('--i', opacity);
-        dot.dataset.originalOpacity = opacity;
-        grid.appendChild(dot);
-        dots.push({ el: dot, index: i });
-      }
+  // Hide if no interaction for 2 sec
+  function resetHideTimer() {
+    clearTimeout(hideTimeout);
+    hideTimeout = setTimeout(() => {
+      sidebar.classList.remove('active');
+    }, 2000);
+  }
 
-      dots.forEach(({ el, index }) => {
-        el.addEventListener('mouseenter', () => {
-          const [r1, c1] = getRC(index);
-          dots.forEach(({ el: otherEl, index: idx }) => {
-            const [r2, c2] = getRC(idx);
-            const dist = Math.hypot(r2 - r1, c2 - c1);
-            if (dist <= 4) {
-              const baseOpacity = parseFloat(otherEl.dataset.originalOpacity);
-              const fade = Math.max(baseOpacity, 1 - dist * 0.1);
-              otherEl.classList.add('hovered');
-              otherEl.style.setProperty('--i', fade.toFixed(3));
-              const intensity = Math.max(0, 255 - dist * 50);
-              otherEl.style.backgroundColor = `rgb(${intensity}, ${intensity}, ${intensity})`;
 
-              setTimeout(() => {
-                otherEl.classList.remove('hovered');
-                if (!otherEl.classList.contains('shimmering')) {
-                  otherEl.style.setProperty('--i', baseOpacity);
-                  otherEl.style.backgroundColor = 'transparent'; // Use transparent to avoid flicker
-                }
-              }, 400); // Shorter hover reset
-            }
-          });
-        });
-      });
-    }
-
-    function shimmerDot(dot) {
-      if (dot.classList.contains('hovered') || dot.classList.contains('shimmering') || dot.style.backgroundColor === 'rgb(255, 255, 255)') return;
-      dot.classList.add('shimmering');
-      dot.style.setProperty('--i', 1);
-      dot.style.backgroundColor = 'rgb(255, 255, 255)'; // Use white to create a shimmer effect
-      // Do NOT reset color or opacity
-    
-      setTimeout(() => {
-        dot.classList.remove('shimmering');
-        if (!dot.classList.contains('hovered')) {
-          dot.style.setProperty('--i', originalOpacity);
-          dot.style.backgroundColor = 'transparent'; // Use transparent to avoid flicker
-        }
-      }, 2000); // Shorter shimmer life
-    }
-
-    function startSlowShimmer() {
-      setInterval(() => {
-        const count = Math.floor(Math.random() * 3) + 2; // Fewer shimmer dots
-        for (let i = 0; i < count; i++) {
-          const randomDot = dots[Math.floor(Math.random() * dots.length)];
-          shimmerDot(randomDot.el);
-        }
-      }, 3000); // Less frequent shimmer
-    }
-
-    createDots();
-    startSlowShimmer();
