@@ -321,6 +321,9 @@ img, .about-image, .home-image {
   .sidebar.active {
     display: block; /* show when active */
   }
+  spline-viewer{
+    display: none;
+  }
 }
 /* === Medium Devices (Tablets) === */
 @media (min-width: 601px) and (max-width: 1024px) {
