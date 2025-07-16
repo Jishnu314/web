@@ -10,11 +10,8 @@ This is my personal portfolio website. It showcases my skills, projects, and con
 
 How to Use:
 -----------
-1. Open the link   https://jishnu314.github.io/web/
+1. Open the link   https://jishnu314.github.io/in/
 
 License:
 --------
 This project is licensed under the MIT License. See LICENSE.txt for details.
-
-
-
