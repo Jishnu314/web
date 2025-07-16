@@ -89,12 +89,22 @@
 }
 
 /* Large Devices */
-@media (min-width: 1025px) {
+@media (min-width: 1025px) and (max-width: 1440px) {
   .skills-container {
     justify-content: center;
     gap: 24px;
   }
   .skill {
     max-width: 90px;
+  }
+
+}
+/*======= desktop===*/
+@media (min-width: 1441px) {
+  .skill {
+    max-width: 100px;
+  }
+  .skill i {
+    font-size: 3rem;
   }
 }

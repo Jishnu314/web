@@ -190,11 +190,11 @@ nav a:hover {
   color: rgb(0, 0, 0);
 }
 spline-viewer {
-        width: 100%;
-        height: 100%;
-        display: block;
-        scale: 1.5;
-      }
+  width: 100%;
+  height: 100%;
+  display: block;
+  scale: 1.5;
+}
 
 /*================================== CONTACT========================*/
 .contact-center {
@@ -341,19 +341,34 @@ img, .about-image, .home-image {
     height: 55px;
     font-size: 24px;
   }
+  spline-viewer{
+    display: none;
+  }
 }
 
-/* === Large Devices (Laptops/Desktops) === */
-@media (min-width: 1025px) {
+/* === Large Devices (Laptops) === */
+@media (min-width: 1025px) and (max-width: 1440px) {
   .section {
-    flex-direction: row;
+    padding: 4rem 6vw;
   }
-  .section-content {
-    max-width: 40vw;
+  .section-title {
+    font-size: 2.8rem;
   }
   .section-img {
     max-width: 40vw;
   }
-  
 }
 
+/*=== desktop ===*/
+@media (min-width: 1441px) {
+  .section {
+    padding: 6rem 10vw;
+  }
+  .section-title {
+    font-size: 3rem;
+  }
+  .section-img,
+  .section-content {
+    max-width: 35vw;
+  }
+}
