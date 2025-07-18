@@ -184,20 +184,18 @@ nav a:hover {
   min-height: 100vh;
 }
 .section-titleH {
-  font-family: "Audiowide", sans-serif;
-  font-weight: 500;
+  font-family: 'Neuropol', sans-serif;
+  font-weight: 800;
   font-size: 3.8rem;
   font-style: normal;
   color: rgb(0, 0, 0);
 }
 spline-viewer {
-  width: auto;
-  height: auto;
+  width: 125%;
+  height: 100%;
   display: block;
   overflow: hidden;
-  
 }
-
 /*================================== CONTACT========================*/
 .contact-center {
   display: flex;
