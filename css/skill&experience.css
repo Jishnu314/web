@@ -46,7 +46,13 @@
   gap: 40px;
   flex-wrap: wrap; /* keeps it responsive */
 }
-
+.experience-desc {
+  font-size: 0.9rem;
+  padding-left: 12px;
+}
+.experience-list {
+  padding-left: 24px;
+}
 .skills-experiences-wrapper .section-content {
   flex: 1;
   min-width: 300px; /* adjust as needed */
