@@ -35,7 +35,7 @@ export const PROFILE = {
     emailDomain: "gmail.com",
     // Path to your resume PDF. Drop the file into the `public/` folder
     // (e.g. public/resume.pdf) and reference it here as "/resume.pdf".
-    resumeUrl: "/assets/Jishnu_K_Resume.pdf",
+    resumeUrl: "...../assets/Jishnu_K_Resume.pdf",
   },
 
   footer: {
