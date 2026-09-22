@@ -14,7 +14,7 @@ export const SKILLS = [
   },
   {
     group: "SCADA",
-    items: ["wonderware Intouch"]
+    items: ["Wonderware Intouch"]
   },
   {
     group: "Other Software & Tools",
