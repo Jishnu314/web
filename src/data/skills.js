@@ -13,6 +13,10 @@ export const SKILLS = [
     items: ["Zelio Soft", "Allen Bradley"],
   },
   {
+    group: "SCADA",
+    items: ["wonderware Intouch"]
+  },
+  {
     group: "Other Software & Tools",
     items: [
       "Gazebo",
