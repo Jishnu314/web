@@ -15,7 +15,7 @@ export default function Nav() {
   return (
     <header className="fixed top-4 inset-x-0 z-50 px-4">
       <nav
-        className="w-[80%] mx-auto flex items-center justify-between px-6 py-3 rounded-full"
+        className="w-[95%] lg:w-[90%] xl:w-[80%] mx-auto flex items-center justify-between px-6 py-3 rounded-full"
         style={{
           backgroundColor: theme === "light" ? "rgba(255,255,255,0.85)" : "rgba(15,17,21,0.85)",
           backdropFilter: "blur(10px)",
@@ -23,11 +23,11 @@ export default function Nav() {
           boxShadow: theme === "light" ? "0 8px 24px rgba(16,24,40,0.08)" : "0 8px 24px rgba(0,0,0,0.35)",
         }}
       >
-        <a href="#top" className="text-base font-semibold" style={{ ...font, color: colors.text }}>
+        <a href="#top" className="text-base font-semibold whitespace-nowrap" style={{ ...font, color: colors.text }}>
           {PROFILE.name}
         </a>
 
-        <div className="hidden sm:flex items-center gap-1">
+        <div className="hidden lg:flex items-center gap-1">
           {NAV_LINKS.map(([label, id]) => (
             <a
               key={id}
@@ -63,7 +63,7 @@ export default function Nav() {
           </a>
         </div>
 
-        <div className="flex sm:hidden items-center gap-3">
+        <div className="flex lg:hidden items-center gap-3">
           <button onClick={toggleTheme} style={{ color: colors.text }} aria-label="Toggle theme">
             {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
           </button>
@@ -75,7 +75,7 @@ export default function Nav() {
 
       {open && (
         <div
-          className="sm:hidden w-[80%] mx-auto mt-2 px-6 py-5 flex flex-col gap-4 rounded-2xl"
+          className="lg:hidden w-[95%] mx-auto mt-2 px-6 py-5 flex flex-col gap-4 rounded-2xl"
           style={{
             backgroundColor: theme === "light" ? "rgba(255,255,255,0.95)" : "rgba(15,17,21,0.95)",
             backdropFilter: "blur(10px)",
@@ -94,6 +94,16 @@ export default function Nav() {
               {label}
             </a>
           ))}
+          <a
+            href={PROFILE.contact.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            className="text-sm w-fit px-4 py-2 rounded-full"
+            style={{ ...font, backgroundColor: colors.text, color: colors.bg }}
+          >
+            Resume
+          </a>
         </div>
       )}
     </header>
