@@ -13,5 +13,12 @@ export const TIMELINE = [
     period: "2022 — 2026",
     desc: "Coursework in electronics, sensors, control systems, signal processing, embedded systems, and industrial automation.",
   },
-  
+
+  {
+  type: "Education",
+  title: "Industrial Automation Course",
+  org: "IPCS Global, Kozhikode",
+  period: "July 2024 – Present",
+  desc: "Practical training in PLC programming, SCADA development, process control, and industrial automation systems using RSLogix 500 ,Zelio Soft 2, InTouch.",
+},
 ];
