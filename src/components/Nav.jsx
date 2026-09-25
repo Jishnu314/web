@@ -54,8 +54,7 @@ export default function Nav() {
 
           <a
             href={PROFILE.contact.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            download
             className="ml-2 text-sm px-4 py-2 rounded-full"
             style={{ ...font, backgroundColor: colors.text, color: colors.bg }}
           >
