@@ -1,27 +1,63 @@
 export const SKILLS = [
   {
-    group: "Programming",
-    items: ["Embedded C/C++", "Python", "HTML/CSS", "Assembly Language(ASM)"],
+    group: "Programming Languages",
+    items: [
+      "Python",
+      "C Programming",
+      "Embedded C/C++",
+      "HTML/CSS",
+      "Assembly Language"
+    ],
   },
 
   {
-    group: "Control & Automation",
-    items: ["PID Control", "PLC & Ladder Logic", "SCADA", "IoT / MQTT"],
-  },
-  {
-    group: "PLC programming",
-    items: ["Zelio Soft", "Allen Bradley"],
-  },
-  {
-    group: "Other Software & Tools",
+    group: "Industrial Automation & Control",
     items: [
-      "Gazebo",
-      "ROS2 Humble",
-      "RViz",
-      "MATLAB & Simulink",
+      "Industrial Automation",
+      "Process Control",
+      "PID Control",
+      "PLC Ladder Logic",
+      "SCADA",
+      "IoT / MQTT"
+    ],
+  },
+
+  {
+    group: "PLC & SCADA Software",
+    items: [
+      "RSLogix 500",
+      "CODESYS",
+      "InTouch SCADA",
+      "Zelio Soft 2"
+    ],
+  },
+
+  {
+    group: "Embedded Systems & IoT",
+    items: [
+      "ESP32",
+      "Raspberry Pi",
+      "Embedded Systems",
+      "OpenCV"
+    ],
+  },
+
+  {
+    group: "Engineering Tools",
+    items: [
+      "MATLAB",
+      "Simulink",
+      "Proteus 8",
+      "LTspice"
+    ],
+  },
+
+  {
+    group: "Development Tools",
+    items: [
       "Git",
-      "Proteus",
-      "LT spice",
+      "GitHub",
+      "VS Code"
     ],
   },
 ];
