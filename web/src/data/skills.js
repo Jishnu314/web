@@ -13,7 +13,6 @@ export const SKILLS = [
   {
     group: "Industrial Automation & Control",
     items: [
-      "Industrial Automation",
       "Process Control",
       "PID Control",
       "PLC Ladder Logic",
