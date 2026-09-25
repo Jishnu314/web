@@ -15,7 +15,7 @@ export default function Nav() {
   return (
     <header className="fixed top-4 inset-x-0 z-50 px-4">
       <nav
-        className="w-[95%] lg:w-[90%] xl:w-[80%] mx-auto flex items-center justify-between px-6 py-3 rounded-full"
+        className="w-fit max-w-[95%] lg:w-[90%] xl:w-[80%] mx-auto flex items-center justify-between px-6 py-3 rounded-full"
         style={{
           backgroundColor: theme === "light" ? "rgba(255,255,255,0.85)" : "rgba(15,17,21,0.85)",
           backdropFilter: "blur(10px)",
