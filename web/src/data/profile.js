@@ -31,7 +31,7 @@ export const PROFILE = {
   },
 
   contact: {
-    emailUser: "jishnukolarkunnath",
+    emailUser: "jishnukolar4",
     emailDomain: "gmail.com",
     // Path to your resume PDF. Drop the file into the `public/` folder
     // (e.g. public/resume.pdf) and reference it here as "/resume.pdf".
