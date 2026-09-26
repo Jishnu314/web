@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Menu, X, Sun, Moon, FileText, Eye } from "lucide-react";
 import { useTheme } from "../context/ThemeContext.jsx";
 import { useActiveSection } from "../hooks/useActiveSection.js";
@@ -10,8 +10,35 @@ export default function Nav() {
   const { colors, theme, toggleTheme } = useTheme();
   const [open, setOpen] = useState(false);
   const [resumeHovered, setResumeHovered] = useState(false);
+  const [idleEyePeek, setIdleEyePeek] = useState(false);
+  const [eyeBlinkKey, setEyeBlinkKey] = useState(0);
   const sectionIds = useMemo(() => NAV_LINKS.map(([, id]) => id), []);
   const active = useActiveSection(sectionIds);
+  const showResumeEye = resumeHovered || idleEyePeek;
+
+  useEffect(() => {
+    let blinkTimer;
+    let peekTimer;
+    if (resumeHovered) setIdleEyePeek(false);
+
+    const scheduleBlink = () => {
+      const delay = resumeHovered ? 900 + Math.random() * 800 : 2800 + Math.random() * 4200;
+      blinkTimer = window.setTimeout(() => {
+        setEyeBlinkKey((key) => key + 1);
+        if (!resumeHovered) {
+          setIdleEyePeek(true);
+          peekTimer = window.setTimeout(() => setIdleEyePeek(false), 900);
+        }
+        scheduleBlink();
+      }, delay);
+    };
+
+    scheduleBlink();
+    return () => {
+      window.clearTimeout(blinkTimer);
+      window.clearTimeout(peekTimer);
+    };
+  }, [resumeHovered]);
 
   return (
     <header className="fixed top-4 inset-x-0 z-50 px-4">
@@ -68,10 +95,10 @@ export default function Nav() {
             onFocus={() => setResumeHovered(true)}
             onBlur={() => setResumeHovered(false)}
           >
-            {resumeHovered
-              ? <Eye key="desktop-eye" size={16} className="resume-eye-blink xl:hidden" aria-hidden="true" />
+            {showResumeEye
+              ? <Eye key={`desktop-eye-${eyeBlinkKey}`} size={16} className="resume-eye-blink xl:hidden" aria-hidden="true" />
               : <FileText key="desktop-resume" size={16} className="nav-icon-enter xl:hidden" aria-hidden="true" />}
-            {resumeHovered && <Eye className="resume-eye-blink hidden xl:inline-block" size={14} aria-hidden="true" />}
+            {showResumeEye && <Eye key={`desktop-eye-wide-${eyeBlinkKey}`} className="resume-eye-blink hidden xl:inline-block" size={14} aria-hidden="true" />}
             <span className="nav-label-enter hidden xl:inline text-sm">Resume</span>
           </a>
         </div>
@@ -90,8 +117,8 @@ export default function Nav() {
             onFocus={() => setResumeHovered(true)}
             onBlur={() => setResumeHovered(false)}
           >
-            {resumeHovered
-              ? <Eye key="mobile-eye" className="resume-eye-blink" size={17} aria-hidden="true" />
+            {showResumeEye
+              ? <Eye key={`mobile-eye-${eyeBlinkKey}`} className="resume-eye-blink" size={17} aria-hidden="true" />
               : <FileText key="mobile-resume" className="nav-icon-enter" size={17} aria-hidden="true" />}
           </a>
           <button onClick={toggleTheme} className="nav-control theme-toggle w-9 h-9 rounded-full flex items-center justify-center" style={{ color: colors.text }} aria-label="Toggle theme">
