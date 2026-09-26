@@ -1,5 +1,5 @@
-import React, { useMemo, useState } from "react";
-import { Menu, X, Sun, Moon, FileText } from "lucide-react";
+import React, { useEffect, useMemo, useState } from "react";
+import { Menu, X, Sun, Moon, FileText, Eye } from "lucide-react";
 import { useTheme } from "../context/ThemeContext.jsx";
 import { useActiveSection } from "../hooks/useActiveSection.js";
 import { NAV_LINKS } from "../data/navLinks.js";
@@ -9,8 +9,23 @@ import { font } from "../theme/typography.js";
 export default function Nav() {
   const { colors, theme, toggleTheme } = useTheme();
   const [open, setOpen] = useState(false);
+  const [resumePeek, setResumePeek] = useState(false);
   const sectionIds = useMemo(() => NAV_LINKS.map(([, id]) => id), []);
   const active = useActiveSection(sectionIds);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let hideTimeout;
+    const interval = window.setInterval(() => {
+      setResumePeek(true);
+      window.clearTimeout(hideTimeout);
+      hideTimeout = window.setTimeout(() => setResumePeek(false), 1500);
+    }, 9000);
+    return () => {
+      window.clearInterval(interval);
+      window.clearTimeout(hideTimeout);
+    };
+  }, []);
 
   return (
     <header className="fixed top-4 inset-x-0 z-50 px-4">
@@ -51,7 +66,7 @@ export default function Nav() {
             style={{ border: `1px solid ${colors.border}`, color: colors.text }}
             aria-label="Toggle theme"
           >
-            {theme === "light" ? <Moon className="nav-icon-enter" size={15} /> : <Sun className="nav-icon-enter" size={15} />}
+            {theme === "light" ? <Moon className="theme-icon-enter" size={15} /> : <Sun className="theme-icon-enter" size={15} />}
           </button>
 
           <a
@@ -63,7 +78,9 @@ export default function Nav() {
             aria-label="Open resume"
             title="Open resume"
           >
-            <FileText size={16} className="nav-icon-enter xl:hidden" />
+            {resumePeek
+              ? <Eye key="desktop-eye" size={16} className="resume-eye-blink xl:hidden" aria-hidden="true" />
+              : <FileText key="desktop-resume" size={16} className="nav-icon-enter xl:hidden" aria-hidden="true" />}
             <span className="nav-label-enter hidden xl:inline text-sm">Resume</span>
           </a>
         </div>
@@ -78,10 +95,12 @@ export default function Nav() {
             aria-label="Open resume"
             title="Open resume"
           >
-            <FileText className="nav-icon-enter" size={17} />
+            {resumePeek
+              ? <Eye key="mobile-eye" className="resume-eye-blink" size={17} aria-hidden="true" />
+              : <FileText key="mobile-resume" className="nav-icon-enter" size={17} aria-hidden="true" />}
           </a>
           <button onClick={toggleTheme} className="nav-control w-9 h-9 rounded-full flex items-center justify-center" style={{ color: colors.text }} aria-label="Toggle theme">
-            {theme === "light" ? <Moon className="nav-icon-enter" size={18} /> : <Sun className="nav-icon-enter" size={18} />}
+            {theme === "light" ? <Moon className="theme-icon-enter" size={18} /> : <Sun className="theme-icon-enter" size={18} />}
           </button>
           <button onClick={() => setOpen(!open)} className="nav-control w-9 h-9 rounded-full flex items-center justify-center" style={{ color: colors.text }} aria-label="Toggle menu">
             {open ? <X className="nav-icon-enter" size={22} /> : <Menu className="nav-icon-enter" size={22} />}

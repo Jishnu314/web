@@ -49,12 +49,95 @@ button {
   transform: scale(0.94);
 }
 
+.nav-resume {
+  position: relative;
+  isolation: isolate;
+}
+
+.nav-resume::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid currentColor;
+  border-radius: inherit;
+  content: "";
+  opacity: 0;
+  transform: scale(0.78);
+  transition: opacity 300ms ease, transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.nav-resume:hover::after {
+  opacity: 0.35;
+  transform: scale(1.18);
+}
+
 .nav-icon-enter {
   animation: nav-icon-enter 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .nav-label-enter {
   animation: nav-label-enter 440ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.theme-icon-enter {
+  animation: theme-icon-switch 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.resume-eye-blink {
+  transform-origin: center;
+  animation: eye-blink 850ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.download-button {
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 320ms ease, filter 320ms ease;
+}
+
+.download-button:hover {
+  transform: translateY(-2px) scale(1.025);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+  filter: brightness(1.08);
+}
+
+.download-button:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.download-icon {
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.download-button:hover .download-icon {
+  animation: download-bounce 620ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cta-secondary {
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), color 320ms ease, background-color 320ms ease, box-shadow 320ms ease !important;
+}
+
+.cta-secondary:hover {
+  border-color: var(--cta-accent) !important;
+  background-color: var(--cta-soft);
+  color: var(--cta-accent) !important;
+  transform: translateY(-3px) scale(1.025);
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--cta-accent) 18%, transparent);
+}
+
+.cta-secondary:active {
+  transform: translateY(0) scale(0.96);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--cta-accent) 14%, transparent);
+}
+
+.cta-secondary:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--cta-accent) 40%, transparent);
+  outline-offset: 3px;
+}
+
+.cta-arrow {
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cta-secondary:hover .cta-arrow {
+  transform: translate(2px, -2px);
 }
 
 @keyframes nav-arrive {
@@ -88,6 +171,23 @@ button {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes theme-icon-switch {
+  from { opacity: 0; transform: rotate(-100deg) scale(0.65); }
+  to { opacity: 1; transform: rotate(0) scale(1); }
+}
+
+@keyframes eye-blink {
+  0%, 100% { transform: scaleY(1); }
+  38%, 52% { transform: scaleY(0.08); }
+  45%, 60% { transform: scaleY(1); }
+}
+
+@keyframes download-bounce {
+  0%, 100% { transform: translateY(0); }
+  35% { transform: translateY(4px); }
+  70% { transform: translateY(-2px); }
 }
 
 @keyframes nav-panel-enter {

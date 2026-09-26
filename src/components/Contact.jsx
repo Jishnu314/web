@@ -48,10 +48,10 @@ export default function Contact() {
             <a
               href={PROFILE.contact.resumeUrl}
               download
-              className="inline-flex items-center gap-2 text-sm px-5 py-3 rounded-md transition-transform hover:-translate-y-0.5 flex-shrink-0"
+              className="download-button inline-flex items-center gap-2 text-sm px-5 py-3 rounded-md flex-shrink-0"
               style={{ ...font, backgroundColor: colors.text, color: colors.bg }}
             >
-              <Download size={16} /> Download my resume
+              <Download className="download-icon" size={16} /> Download my resume
             </a>
           </div>
         </Reveal>

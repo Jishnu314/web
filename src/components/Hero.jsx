@@ -65,10 +65,11 @@ export default function Hero() {
               </a>
               <a
                 href="#contact"
-                className="px-5 py-3 text-sm rounded-md inline-flex items-center gap-2 transition-transform hover:-translate-y-0.5"
-                style={{ ...font, border: `1px solid ${colors.border}`, color: colors.text }}
+                className="cta-secondary group px-5 py-3 text-sm rounded-md inline-flex items-center gap-2"
+                style={{ ...font, border: `1px solid ${colors.border}`, color: colors.text, "--cta-accent": colors.accent, "--cta-soft": colors.accentSoft }}
               >
                 Get in touch
+                <ArrowUpRight size={16} className="cta-arrow" />
               </a>
             </div>
 
