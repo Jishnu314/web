@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { ChevronDown, Github } from "lucide-react";
 import { useTheme } from "../context/ThemeContext.jsx";
 import { font } from "../theme/typography.js";
+import ExpandableText from "./ExpandableText.jsx";
 
 const BASE_TIMEOUT = 7000;      // closes at 7s if never hovered
 const EXTENDED_TIMEOUT = 15000; // closes at 15s once hovered at least once
@@ -67,29 +68,16 @@ export default function ProjectCard({ project }) {
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`rounded-lg transition-all relative ${active ? "card-glow-active" : ""}`}
+      className="rounded-lg relative"
       style={{
         "--accent-glow": colors.accent,
         border: `1px solid ${active ? colors.accent : colors.border}`,
         backgroundColor: colors.bg,
-        boxShadow: hover ? "0 8px 24px rgba(0,0,0,0.08)" : "none",
-        transform: hover ? "translateY(-2px)" : "translateY(0)",
+        boxShadow: active ? "0 12px 32px rgba(0,0,0,0.1)" : "none",
+        transform: hover ? "translateY(-3px)" : "translateY(0)",
+        transition: "transform 320ms cubic-bezier(0.22, 1, 0.36, 1), border-color 260ms ease, box-shadow 320ms ease",
       }}
     >
-      <style>{`
-        @keyframes borderPulse {
-          0%, 100% {
-            box-shadow: 0 0 0 0 var(--accent-glow);
-          }
-          50% {
-            box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-glow) 25%, transparent);
-          }
-        }
-        .card-glow-active {
-          animation: borderPulse 2s ease-in-out infinite;
-        }
-      `}</style>
-
       {!open && (
         <span
           className="absolute -top-3 right-4 text-xs px-2.5 py-1 rounded-full pointer-events-none transition-opacity duration-200"
@@ -116,7 +104,7 @@ export default function ProjectCard({ project }) {
             style={{
               color: active ? colors.accent : colors.textSub,
               flexShrink: 0,
-              transition: "transform 0.25s ease, color 0.2s",
+              transition: "transform 300ms cubic-bezier(0.22, 1, 0.36, 1), color 220ms ease",
               transform: open ? "rotate(180deg)" : "rotate(0deg)",
             }}
           />
@@ -135,9 +123,9 @@ export default function ProjectCard({ project }) {
             <p className="text-xs font-medium uppercase tracking-wide mb-2.5" style={{ ...font, color: colors.accent }}>
               Overview
             </p>
-            <p className="text-sm leading-[1.7] mb-5" style={{ ...font, color: colors.textSub }}>
+            <ExpandableText className="text-sm leading-[1.7] mb-5" style={{ color: colors.textSub }}>
               {project.details || project.desc}
-            </p>
+            </ExpandableText>
             <a
               href={project.github}
               target="_blank"

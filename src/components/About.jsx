@@ -4,6 +4,7 @@ import { font } from "../theme/typography.js";
 import Reveal from "./Reveal.jsx";
 import Heading from "./Heading.jsx";
 import { PROFILE } from "../data/profile.js";
+import ExpandableText from "./ExpandableText.jsx";
 
 export default function About() {
   const { colors } = useTheme();
@@ -23,9 +24,9 @@ export default function About() {
           />
 
           <div className="flex-1 flex flex-col justify-between">
-            <p className="text-base leading-relaxed" style={{ ...font, color: colors.textSub }}>
+            <ExpandableText className="text-base leading-relaxed" style={{ color: colors.textSub }}>
               {PROFILE.about.paragraph}
-            </p>
+            </ExpandableText>
 
             <div className="flex flex-wrap gap-x-12 gap-y-5 mt-8 pt-6" style={{ borderTop: `1px solid ${colors.border}` }}>
               {PROFILE.about.facts.map(([k, v]) => (

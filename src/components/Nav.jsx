@@ -89,12 +89,13 @@ export default function Nav() {
 
       {open && (
         <div
-          className="md:hidden w-[95%] mx-auto mt-2 px-6 py-5 flex flex-col gap-4 rounded-2xl"
+          className="md:hidden w-[95%] mx-auto mt-2 px-6 py-5 flex flex-col gap-4 rounded-2xl origin-top"
           style={{
             backgroundColor: theme === "light" ? "rgba(255,255,255,0.95)" : "rgba(15,17,21,0.95)",
             backdropFilter: "blur(10px)",
             border: `1px solid ${colors.border}`,
             boxShadow: theme === "light" ? "0 8px 24px rgba(16,24,40,0.08)" : "0 8px 24px rgba(0,0,0,0.35)",
+            animation: "nav-panel-enter 260ms cubic-bezier(0.22, 1, 0.36, 1) both",
           }}
         >
           {NAV_LINKS.map(([label, id]) => (
@@ -102,7 +103,7 @@ export default function Nav() {
               key={id}
               href={`#${id}`}
               onClick={() => setOpen(false)}
-              className="text-sm"
+              className="text-sm transition-transform hover:translate-x-1"
               style={{ ...font, color: active === id ? colors.accent : colors.textSub }}
             >
               {label}

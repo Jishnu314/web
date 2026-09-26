@@ -10,8 +10,10 @@ export default function Reveal({ children, delay = 0 }) {
       ref={ref}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(16px)",
-        transition: `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`,
+        transform: visible ? "translate3d(0, 0, 0) scale(1)" : "translate3d(0, 20px, 0) scale(0.99)",
+        filter: visible ? "blur(0)" : "blur(3px)",
+        transition: `opacity 700ms cubic-bezier(0.22, 1, 0.36, 1) ${delay}ms, transform 700ms cubic-bezier(0.22, 1, 0.36, 1) ${delay}ms, filter 700ms ease ${delay}ms`,
+        willChange: visible ? "auto" : "opacity, transform, filter",
       }}
     >
       {children}

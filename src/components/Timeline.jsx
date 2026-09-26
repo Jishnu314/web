@@ -5,6 +5,7 @@ import { TIMELINE } from "../data/timeline.js";
 import { PROFILE } from "../data/profile.js";
 import Reveal from "./Reveal.jsx";
 import Heading from "./Heading.jsx";
+import ExpandableText from "./ExpandableText.jsx";
 
 export default function Timeline() {
   const { colors } = useTheme();
@@ -24,7 +25,7 @@ export default function Timeline() {
                 <div className="sm:col-span-4" style={{ borderLeft: `2px solid ${colors.border}`, paddingLeft: 20 }}>
                   <p className="text-base font-semibold" style={{ ...font, color: colors.text }}>{t.title}</p>
                   <p className="text-sm mb-2" style={{ ...font, color: colors.textSub }}>{t.org}</p>
-                  <p className="text-sm leading-relaxed" style={{ ...font, color: colors.textSub }}>{t.desc}</p>
+                  <ExpandableText className="text-sm leading-relaxed" style={{ color: colors.textSub }}>{t.desc}</ExpandableText>
                 </div>
               </div>
             </Reveal>
