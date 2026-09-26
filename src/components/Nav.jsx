@@ -15,12 +15,14 @@ export default function Nav() {
   return (
     <header className="fixed top-4 inset-x-0 z-50 px-4">
       <nav
-        className="w-[95%] lg:w-[90%] xl:w-[80%] mx-auto flex items-center justify-between px-6 py-3 rounded-full"
+        className="nav-glass w-[95%] lg:w-[90%] xl:w-[80%] mx-auto flex items-center justify-between px-6 py-3 rounded-full"
         style={{
-          backgroundColor: theme === "light" ? "rgba(255,255,255,0.85)" : "rgba(15,17,21,0.85)",
-          backdropFilter: "blur(10px)",
+          backgroundColor: theme === "light" ? "rgba(255,255,255,0.78)" : "rgba(15,17,21,0.78)",
+          backdropFilter: "blur(18px) saturate(160%)",
+          WebkitBackdropFilter: "blur(18px) saturate(160%)",
           border: `1px solid ${colors.border}`,
           boxShadow: theme === "light" ? "0 8px 24px rgba(16,24,40,0.08)" : "0 8px 24px rgba(0,0,0,0.35)",
+          animation: "nav-arrive 650ms cubic-bezier(0.22, 1, 0.36, 1) both",
         }}
       >
         <a href="#top" className="text-base font-semibold whitespace-nowrap" style={{ ...font, color: colors.text }}>
@@ -32,7 +34,7 @@ export default function Nav() {
             <a
               key={id}
               href={`#${id}`}
-              className="text-sm px-3 py-1.5 rounded-full transition-colors"
+              className="nav-link text-sm px-3 py-1.5 rounded-full"
               style={{
                 ...font,
                 color: active === id ? colors.accent : colors.textSub,
@@ -45,24 +47,24 @@ export default function Nav() {
 
           <button
             onClick={toggleTheme}
-            className="ml-2 w-9 h-9 rounded-full flex items-center justify-center transition-colors"
+            className="nav-control ml-2 w-9 h-9 rounded-full flex items-center justify-center"
             style={{ border: `1px solid ${colors.border}`, color: colors.text }}
             aria-label="Toggle theme"
           >
-            {theme === "light" ? <Moon size={15} /> : <Sun size={15} />}
+            {theme === "light" ? <Moon className="nav-icon-enter" size={15} /> : <Sun className="nav-icon-enter" size={15} />}
           </button>
 
           <a
             href={PROFILE.contact.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 h-9 min-w-9 xl:px-4 rounded-full inline-flex items-center justify-center gap-2"
+            className="nav-control nav-resume ml-2 h-9 min-w-9 xl:min-w-[92px] xl:px-4 rounded-full inline-flex items-center justify-center gap-2"
             style={{ ...font, backgroundColor: colors.text, color: colors.bg }}
             aria-label="Open resume"
             title="Open resume"
           >
-            <FileText size={16} className="xl:hidden" />
-            <span className="hidden xl:inline text-sm">Resume</span>
+            <FileText size={16} className="nav-icon-enter xl:hidden" />
+            <span className="nav-label-enter hidden xl:inline text-sm">Resume</span>
           </a>
         </div>
 
@@ -71,18 +73,18 @@ export default function Nav() {
             href={PROFILE.contact.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-9 h-9 rounded-full flex items-center justify-center"
+            className="nav-control nav-resume w-9 h-9 rounded-full flex items-center justify-center"
             style={{ backgroundColor: colors.text, color: colors.bg }}
             aria-label="Open resume"
             title="Open resume"
           >
-            <FileText size={17} />
+            <FileText className="nav-icon-enter" size={17} />
           </a>
-          <button onClick={toggleTheme} style={{ color: colors.text }} aria-label="Toggle theme">
-            {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
+          <button onClick={toggleTheme} className="nav-control w-9 h-9 rounded-full flex items-center justify-center" style={{ color: colors.text }} aria-label="Toggle theme">
+            {theme === "light" ? <Moon className="nav-icon-enter" size={18} /> : <Sun className="nav-icon-enter" size={18} />}
           </button>
-          <button onClick={() => setOpen(!open)} style={{ color: colors.text }} aria-label="Toggle menu">
-            {open ? <X size={22} /> : <Menu size={22} />}
+          <button onClick={() => setOpen(!open)} className="nav-control w-9 h-9 rounded-full flex items-center justify-center" style={{ color: colors.text }} aria-label="Toggle menu">
+            {open ? <X className="nav-icon-enter" size={22} /> : <Menu className="nav-icon-enter" size={22} />}
           </button>
         </div>
       </nav>
