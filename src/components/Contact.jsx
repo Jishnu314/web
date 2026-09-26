@@ -36,9 +36,9 @@ export default function Contact() {
                     <button
                       type="button"
                       onClick={() => handleCopy(copyValue)}
-                      className="p-1 rounded transition-colors"
+                      className="copy-control rounded transition-colors"
                       style={{ color: copied === copyValue ? colors.accent : colors.textSub }}
-                      aria-label="Copy to clipboard"
+                      aria-label={`Copy ${label} to clipboard`}
                     >
                       {copied === copyValue ? <Check size={13} /> : <Copy size={13} />}
                     </button>

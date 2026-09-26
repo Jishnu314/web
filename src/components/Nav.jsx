@@ -52,7 +52,7 @@ export default function Nav() {
             style={{ border: `1px solid ${colors.border}`, color: colors.text }}
             aria-label="Toggle theme"
           >
-            {theme === "light" ? <Moon className="theme-icon-enter" size={15} /> : <Sun className="theme-icon-enter" size={15} />}
+            {theme === "light" ? <Moon className="theme-icon-enter theme-moon" size={15} /> : <Sun className="theme-icon-enter theme-sun" size={15} />}
           </button>
 
           <a
@@ -95,7 +95,7 @@ export default function Nav() {
               : <FileText key="mobile-resume" className="nav-icon-enter" size={17} aria-hidden="true" />}
           </a>
           <button onClick={toggleTheme} className="nav-control theme-toggle w-9 h-9 rounded-full flex items-center justify-center" style={{ color: colors.text }} aria-label="Toggle theme">
-            {theme === "light" ? <Moon className="theme-icon-enter" size={18} /> : <Sun className="theme-icon-enter" size={18} />}
+            {theme === "light" ? <Moon className="theme-icon-enter theme-moon" size={18} /> : <Sun className="theme-icon-enter theme-sun" size={18} />}
           </button>
           <button onClick={() => setOpen(!open)} className="nav-control w-9 h-9 rounded-full flex items-center justify-center" style={{ color: colors.text }} aria-label="Toggle menu">
             {open ? <X className="nav-icon-enter" size={22} /> : <Menu className="nav-icon-enter" size={22} />}
