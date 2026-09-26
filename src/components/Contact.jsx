@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Download, Copy, Check } from "lucide-react";
+import { Download, Copy, Check, CircleHelp } from "lucide-react";
 import { useTheme } from "../context/ThemeContext.jsx";
 import { font } from "../theme/typography.js";
 import Reveal from "./Reveal.jsx";
@@ -62,9 +62,18 @@ export default function Contact() {
               className="download-button inline-flex items-center gap-2 text-sm px-5 py-3 rounded-md flex-shrink-0"
               style={{ ...font, backgroundColor: colors.text, color: colors.bg }}
             >
-              {downloaded ? <Check className="download-complete" size={16} /> : <Download className="download-icon" size={16} />}
+              {downloaded ? (
+                <Check className="download-complete" size={16} />
+              ) : downloadHovered ? (
+                <span className="download-icon-sequence" aria-hidden="true">
+                  <Download className="download-arrow" size={16} />
+                  <CircleHelp className="download-question" size={16} />
+                </span>
+              ) : (
+                <Download className="download-icon" size={16} />
+              )}
               <span key={downloaded ? "downloaded" : downloadHovered ? "hover" : "idle"} className="download-label">
-                {downloaded ? "Downloaded!" : downloadHovered ? "Download now?" : "Download my resume"}
+                {downloaded ? "Downloaded!" : downloadHovered ? "Download?" : "Download my resume"}
               </span>
             </a>
           </div>

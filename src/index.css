@@ -186,6 +186,27 @@ button:focus-visible {
   transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.download-icon-sequence {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+
+.download-icon-sequence svg {
+  position: absolute;
+  inset: 0;
+}
+
+.download-arrow {
+  animation: download-drop 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.download-question {
+  opacity: 0;
+  animation: download-question-pop 320ms cubic-bezier(0.22, 1, 0.36, 1) 360ms both;
+}
+
 .download-button:focus-visible {
   outline: 3px solid rgba(82, 112, 245, 0.38);
   outline-offset: 3px;
@@ -300,6 +321,18 @@ button:focus-visible {
   0%, 100% { transform: translateY(0); }
   35% { transform: translateY(4px); }
   70% { transform: translateY(-2px); }
+}
+
+@keyframes download-drop {
+  0% { opacity: 0; transform: translateY(-5px); }
+  48% { opacity: 1; transform: translateY(4px); }
+  78% { opacity: 1; transform: translateY(-1px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes download-question-pop {
+  from { opacity: 0; transform: scale(0.55) rotate(-20deg); }
+  to { opacity: 1; transform: scale(1) rotate(0); }
 }
 
 @keyframes download-label-enter {
