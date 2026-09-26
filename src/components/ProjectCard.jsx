@@ -66,6 +66,7 @@ export default function ProjectCard({ project }) {
 
   return (
     <div
+      data-magnetic
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className="rounded-lg relative"
@@ -75,7 +76,7 @@ export default function ProjectCard({ project }) {
         backgroundColor: colors.bg,
         boxShadow: active ? "0 12px 32px rgba(0,0,0,0.1)" : "none",
         transform: hover ? "translateY(-3px)" : "translateY(0)",
-        transition: "transform 320ms cubic-bezier(0.22, 1, 0.36, 1), border-color 260ms ease, box-shadow 320ms ease",
+        transition: "transform 320ms cubic-bezier(0.22, 1, 0.36, 1), translate 380ms cubic-bezier(0.22, 1, 0.36, 1), border-color 260ms ease, box-shadow 320ms ease",
       }}
     >
       {!open && (

@@ -10,10 +10,12 @@ import Skills from "./components/Skills.jsx";
 import Projects from "./components/Projects.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
+import { useMagneticInteraction } from "./hooks/useMagneticInteraction.js";
 
 // Reads theme colors — must live inside <ThemeProvider>.
 function AppShell() {
   const { colors } = useTheme();
+  useMagneticInteraction();
 
   // Keeps the browser tab title in sync with profile.js, so you only
   // ever need to edit your name/role in one place.
