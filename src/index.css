@@ -110,34 +110,34 @@ button {
   animation: download-bounce 620ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.cta-secondary {
-  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), color 320ms ease, background-color 320ms ease, box-shadow 320ms ease !important;
+.pet-trigger {
+  isolation: isolate;
 }
 
-.cta-secondary:hover {
-  border-color: var(--cta-accent) !important;
-  background-color: var(--cta-soft);
-  color: var(--cta-accent) !important;
-  transform: translateY(-3px) scale(1.025);
-  box-shadow: 0 10px 24px color-mix(in srgb, var(--cta-accent) 18%, transparent);
+.peeking-pet {
+  position: absolute;
+  z-index: 0;
+  width: 38px;
+  height: 34px;
+  right: 10px;
+  bottom: 62%;
+  opacity: 0;
+  transform: translateY(18px) scale(0.78);
+  transform-origin: center bottom;
+  transition: opacity 220ms ease, transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
 }
 
-.cta-secondary:active {
-  transform: translateY(0) scale(0.96);
-  box-shadow: 0 2px 8px color-mix(in srgb, var(--cta-accent) 14%, transparent);
+.pet-trigger:hover .peeking-pet,
+.pet-trigger:focus-within .peeking-pet {
+  opacity: 1;
+  transform: translateY(-7px) scale(1);
 }
 
-.cta-secondary:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--cta-accent) 40%, transparent);
-  outline-offset: 3px;
-}
-
-.cta-arrow {
-  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.cta-secondary:hover .cta-arrow {
-  transform: translate(2px, -2px);
+.pet-eyes {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pet-blink 4.2s ease-in-out infinite;
 }
 
 @keyframes nav-arrive {
@@ -176,6 +176,11 @@ button {
 @keyframes theme-icon-switch {
   from { opacity: 0; transform: rotate(-100deg) scale(0.65); }
   to { opacity: 1; transform: rotate(0) scale(1); }
+}
+
+@keyframes pet-blink {
+  0%, 91%, 100% { transform: scaleY(1); }
+  94%, 97% { transform: scaleY(0.12); }
 }
 
 @keyframes eye-blink {

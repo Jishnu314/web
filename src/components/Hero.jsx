@@ -63,14 +63,29 @@ export default function Hero() {
                 View my work
                 <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
-              <a
-                href="#contact"
-                className="cta-secondary group px-5 py-3 text-sm rounded-md inline-flex items-center gap-2"
-                style={{ ...font, border: `1px solid ${colors.border}`, color: colors.text, "--cta-accent": colors.accent, "--cta-soft": colors.accentSoft }}
-              >
-                Get in touch
-                <ArrowUpRight size={16} className="cta-arrow" />
-              </a>
+              <span className="pet-trigger relative inline-flex">
+                <svg
+                  className="peeking-pet"
+                  viewBox="0 0 44 38"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="M5 36V17L12 4l8 9h7l8-9 7 13v19H5Z" fill="#d9a074" stroke="#704a37" strokeWidth="2" strokeLinejoin="round" />
+                  <path d="M11 18c0-7 5-11 11-11s11 4 11 11v8c0 6-5 9-11 9s-11-3-11-9v-8Z" fill="#f3d6b8" stroke="#704a37" strokeWidth="1.5" />
+                  <g className="pet-eyes" fill="#392b26">
+                    <ellipse cx="17" cy="22" rx="1.5" ry="2.2" />
+                    <ellipse cx="27" cy="22" rx="1.5" ry="2.2" />
+                  </g>
+                  <path d="m20 27 2 1.5 2-1.5M22 28.5v1.5m0 0-2 1m2-1 2 1" fill="none" stroke="#704a37" strokeWidth="1.2" strokeLinecap="round" />
+                </svg>
+                <a
+                  href="#contact"
+                  className="px-5 py-3 text-sm rounded-md inline-flex items-center gap-2 transition-transform hover:-translate-y-0.5 relative z-10"
+                  style={{ ...font, border: `1px solid ${colors.border}`, color: colors.text, backgroundColor: colors.bg }}
+                >
+                  Get in touch
+                </a>
+              </span>
             </div>
 
             
