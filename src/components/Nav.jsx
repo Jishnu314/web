@@ -27,7 +27,7 @@ export default function Nav() {
           {PROFILE.name}
         </a>
 
-        <div className="hidden lg:flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-1">
           {NAV_LINKS.map(([label, id]) => (
             <a
               key={id}
@@ -56,16 +56,17 @@ export default function Nav() {
             href={PROFILE.contact.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 w-9 h-9 rounded-full flex items-center justify-center"
+            className="ml-2 h-9 min-w-9 xl:px-4 rounded-full inline-flex items-center justify-center gap-2"
             style={{ ...font, backgroundColor: colors.text, color: colors.bg }}
             aria-label="Open resume"
             title="Open resume"
           >
-            <FileText size={16} />
+            <FileText size={16} className="xl:hidden" />
+            <span className="hidden xl:inline text-sm">Resume</span>
           </a>
         </div>
 
-        <div className="flex lg:hidden items-center gap-3">
+        <div className="flex md:hidden items-center gap-3">
           <a
             href={PROFILE.contact.resumeUrl}
             target="_blank"
@@ -88,7 +89,7 @@ export default function Nav() {
 
       {open && (
         <div
-          className="lg:hidden w-[95%] mx-auto mt-2 px-6 py-5 flex flex-col gap-4 rounded-2xl"
+          className="md:hidden w-[95%] mx-auto mt-2 px-6 py-5 flex flex-col gap-4 rounded-2xl"
           style={{
             backgroundColor: theme === "light" ? "rgba(255,255,255,0.95)" : "rgba(15,17,21,0.95)",
             backdropFilter: "blur(10px)",
