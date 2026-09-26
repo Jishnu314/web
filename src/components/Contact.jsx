@@ -10,6 +10,8 @@ import { SOCIALS } from "../data/socials.js";
 export default function Contact() {
   const { colors } = useTheme();
   const [copied, setCopied] = useState(null);
+  const [downloadHovered, setDownloadHovered] = useState(false);
+  const [downloaded, setDownloaded] = useState(false);
 
   const handleCopy = (value) => {
     navigator.clipboard.writeText(value);
@@ -48,10 +50,22 @@ export default function Contact() {
             <a
               href={PROFILE.contact.resumeUrl}
               download
+              onPointerEnter={() => setDownloadHovered(true)}
+              onPointerLeave={() => setDownloadHovered(false)}
+              onFocus={() => setDownloadHovered(true)}
+              onBlur={() => setDownloadHovered(false)}
+              onClick={() => {
+                setDownloaded(true);
+                window.setTimeout(() => setDownloaded(false), 2400);
+              }}
+              aria-live="polite"
               className="download-button inline-flex items-center gap-2 text-sm px-5 py-3 rounded-md flex-shrink-0"
               style={{ ...font, backgroundColor: colors.text, color: colors.bg }}
             >
-              <Download className="download-icon" size={16} /> Download my resume
+              {downloaded ? <Check className="download-complete" size={16} /> : <Download className="download-icon" size={16} />}
+              <span key={downloaded ? "downloaded" : downloadHovered ? "hover" : "idle"} className="download-label">
+                {downloaded ? "Downloaded!" : downloadHovered ? "Download now?" : "Download my resume"}
+              </span>
             </a>
           </div>
         </Reveal>

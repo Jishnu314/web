@@ -71,6 +71,29 @@ button {
   transform: scale(1.18);
 }
 
+.theme-toggle {
+  position: relative;
+  isolation: isolate;
+}
+
+.theme-toggle::after {
+  position: absolute;
+  inset: -3px;
+  border: 1px solid currentColor;
+  border-radius: inherit;
+  content: "";
+  opacity: 0;
+  transform: scale(0.82);
+  transition: opacity 320ms ease, transform 480ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.theme-toggle:hover::after,
+.theme-toggle:focus-visible::after {
+  opacity: 0.3;
+  transform: scale(1.16);
+}
+
 .nav-icon-enter {
   animation: nav-icon-enter 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -110,6 +133,19 @@ button {
   animation: download-bounce 620ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.download-button:focus-visible {
+  outline: 3px solid rgba(82, 112, 245, 0.38);
+  outline-offset: 3px;
+}
+
+.download-label {
+  animation: download-label-enter 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.download-complete {
+  animation: downloaded-pop 480ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 .pet-trigger {
   isolation: isolate;
 }
@@ -117,12 +153,12 @@ button {
 .peeking-pet {
   position: absolute;
   z-index: 0;
-  width: 38px;
-  height: 34px;
-  right: 10px;
-  bottom: 62%;
+  width: 28px;
+  height: 23px;
+  right: 12px;
+  bottom: 60%;
   opacity: 0;
-  transform: translateY(18px) scale(0.78);
+  transform: translateY(15px) scale(0.68);
   transform-origin: center bottom;
   transition: opacity 220ms ease, transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
   pointer-events: none;
@@ -131,7 +167,7 @@ button {
 .pet-trigger:hover .peeking-pet,
 .pet-trigger:focus-within .peeking-pet {
   opacity: 1;
-  transform: translateY(-7px) scale(1);
+  transform: translateY(-9px) scale(1);
 }
 
 .pet-eyes {
@@ -193,6 +229,17 @@ button {
   0%, 100% { transform: translateY(0); }
   35% { transform: translateY(4px); }
   70% { transform: translateY(-2px); }
+}
+
+@keyframes download-label-enter {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes downloaded-pop {
+  0% { opacity: 0; transform: scale(0.55) rotate(-20deg); }
+  70% { opacity: 1; transform: scale(1.18) rotate(6deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
 }
 
 @keyframes nav-panel-enter {

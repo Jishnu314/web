@@ -66,17 +66,16 @@ export default function Hero() {
               <span className="pet-trigger relative inline-flex">
                 <svg
                   className="peeking-pet"
-                  viewBox="0 0 44 38"
+                  viewBox="0 0 32 26"
                   aria-hidden="true"
                   focusable="false"
                 >
-                  <path d="M5 36V17L12 4l8 9h7l8-9 7 13v19H5Z" fill="#d9a074" stroke="#704a37" strokeWidth="2" strokeLinejoin="round" />
-                  <path d="M11 18c0-7 5-11 11-11s11 4 11 11v8c0 6-5 9-11 9s-11-3-11-9v-8Z" fill="#f3d6b8" stroke="#704a37" strokeWidth="1.5" />
-                  <g className="pet-eyes" fill="#392b26">
-                    <ellipse cx="17" cy="22" rx="1.5" ry="2.2" />
-                    <ellipse cx="27" cy="22" rx="1.5" ry="2.2" />
+                  <path d="M3 25c0-6 3-9 9-9h7c3 0 4-2 4-5" fill="none" stroke="#397b58" strokeWidth="6" strokeLinecap="round" />
+                  <path d="M17 9c0-4 3-7 7-7s7 3 7 7-3 6-7 6-7-2-7-6Z" fill="#74bd83" stroke="#285a43" strokeWidth="1.6" />
+                  <g className="pet-eyes" fill="#173d2a">
+                    <ellipse cx="23" cy="7" rx="1" ry="1.6" />
                   </g>
-                  <path d="m20 27 2 1.5 2-1.5M22 28.5v1.5m0 0-2 1m2-1 2 1" fill="none" stroke="#704a37" strokeWidth="1.2" strokeLinecap="round" />
+                  <path d="M27 11c2 0 3 1 4 0m-2 0 1 2" fill="none" stroke="#c64e5c" strokeWidth="1.1" strokeLinecap="round" />
                 </svg>
                 <a
                   href="#contact"
