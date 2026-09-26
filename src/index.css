@@ -112,11 +112,41 @@ button:focus-visible {
 }
 
 .theme-sun {
-  animation: sun-glimmer 3.2s ease-in-out infinite;
+  color: #ffd33f;
+  filter: drop-shadow(0 0 5px rgba(255, 196, 38, 0.58));
+  animation: sun-glimmer 2.8s ease-in-out infinite;
 }
 
 .theme-moon {
+  filter: drop-shadow(0 0 4px rgba(145, 175, 255, 0.55));
   animation: moon-glow 4.2s ease-in-out infinite;
+}
+
+.theme-sun-rays {
+  animation: sun-rays 2.8s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.theme-sun-body {
+  fill: #ffc928;
+  stroke: #fff0a0;
+  stroke-width: 0.65;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sun-squish 2.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.theme-sun-core {
+  fill: #fff4bd;
+  pointer-events: none;
+}
+
+.theme-moon-disc {
+  fill: #edf1ff;
+}
+
+.theme-moon-phase {
+  animation: moon-phase-shift 4.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .theme-toggle:hover .theme-sun,
@@ -297,13 +327,29 @@ button:focus-visible {
 }
 
 @keyframes sun-glimmer {
-  0%, 100% { filter: drop-shadow(0 0 0 rgba(250, 190, 60, 0)); }
-  50% { filter: drop-shadow(0 0 3px rgba(250, 190, 60, 0.35)); }
+  0%, 100% { filter: drop-shadow(0 0 4px rgba(255, 196, 38, 0.5)); }
+  50% { filter: drop-shadow(0 0 9px rgba(255, 196, 38, 0.95)); }
 }
 
 @keyframes moon-glow {
   0%, 100% { filter: drop-shadow(0 0 0 rgba(115, 160, 255, 0)); }
   50% { filter: drop-shadow(0 0 3px rgba(115, 160, 255, 0.3)); }
+}
+
+@keyframes sun-squish {
+  0%, 100% { transform: scale(1, 1) rotate(0deg); }
+  42% { transform: scale(1.08, 0.92) rotate(5deg); }
+  72% { transform: scale(0.96, 1.06) rotate(-3deg); }
+}
+
+@keyframes sun-rays {
+  0%, 100% { opacity: 0.75; transform: rotate(0deg); }
+  50% { opacity: 1; transform: rotate(12deg); }
+}
+
+@keyframes moon-phase-shift {
+  0%, 100% { opacity: 0; x: 20px; }
+  42%, 58% { opacity: 1; x: 12px; }
 }
 
 @keyframes pet-blink {
