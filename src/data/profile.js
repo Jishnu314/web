@@ -9,9 +9,10 @@ export const PROFILE = {
   hero: {
     // Shown as the big headline. {name} is replaced automatically.
     greeting: "I'm {name}.",
-    headline: "I build systems, break them, and rebuild.",
+    headline: " build systems, break them, and rebuild it.",
     // Small attributed quote shown under the CTA buttons.
-    quote: "To change something, build a new model that makes the existing model obsolete.",
+    quote:
+      "To change something, build a new model that makes the existing model obsolete.",
     quoteAuthor: "Buckminster Fuller",
   },
 
@@ -47,7 +48,11 @@ export const PROFILE = {
   headings: {
     about: { eyebrow: "ABOUT", title: "Do you know ME ? " },
     experience: { eyebrow: "EXPERIENCE & EDUCATION", title: "Where I've been" },
-    skills: { eyebrow: "SKILLS", title: "My Toolkit's", sub: "The tools, languages, and platforms I use day to day." },
+    skills: {
+      eyebrow: "SKILLS",
+      title: "My Toolkit's",
+      sub: "The tools, languages, and platforms I use day to day.",
+    },
     projects: {
       eyebrow: "PROJECTS",
       title: "My Work's",

@@ -6,7 +6,7 @@ export const SKILLS = [
       "C Programming",
       "Embedded C/C++",
       "HTML/CSS",
-      "Assembly Language"
+      "Assembly Language",
     ],
   },
 
@@ -17,46 +17,27 @@ export const SKILLS = [
       "PID Control",
       "PLC Ladder Logic",
       "SCADA",
-      "IoT / MQTT"
+      "IoT / MQTT",
     ],
   },
 
   {
     group: "PLC & SCADA Software",
-    items: [
-      "RSLogix 500",
-      "CODESYS",
-      "InTouch SCADA",
-      "Zelio Soft 2"
-    ],
+    items: ["RSLogix 500", "CODESYS", "InTouch SCADA", "Zelio Soft 2"],
   },
 
   {
     group: "Embedded Systems & IoT",
-    items: [
-      "ESP32",
-      "Raspberry Pi",
-      "Embedded Systems",
-      "OpenCV"
-    ],
+    items: ["ESP32", "Raspberry Pi", "Embedded Systems"],
   },
 
   {
     group: "Engineering Tools",
-    items: [
-      "MATLAB",
-      "Simulink",
-      "Proteus 8",
-      "LTspice"
-    ],
+    items: ["MATLAB", "Simulink", "Proteus 8", "LTspice"],
   },
 
   {
     group: "Development Tools",
-    items: [
-      "Git",
-      "GitHub",
-      "VS Code"
-    ],
+    items: ["Git", "GitHub", "VS Code"],
   },
 ];
