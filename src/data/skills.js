@@ -6,7 +6,8 @@ export const SKILLS = [
       "C Programming",
       "Embedded C/C++",
       "HTML/CSS",
-      "Assembly Language",
+      "Assembly Language","Ladder Logic",
+       
     ],
   },
 
@@ -28,7 +29,7 @@ export const SKILLS = [
 
   {
     group: "Embedded Systems & IoT",
-    items: ["ESP32", "Raspberry Pi", "Embedded Systems"],
+    items: ["ESP32", "Raspberry Pi", "8051 microcontroller"],
   },
 
   {
